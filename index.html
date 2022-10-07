@@ -156,7 +156,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="toggleTextActions()">
+                <span class="btn" onclick="toggleTextActions()" ontouchend="toggleTextActionsTouch(event, 'bold')">
                     <?xml version="1.0" encoding="UTF-8"?>
                     <svg width="25px" height="14px" viewBox="0 0 25 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Aa</title>
@@ -180,7 +180,7 @@
                         </g>
                     </svg>
                 </span>
-                <span id="btn-bold" class="btn">
+                <span class="btn" onclick="execCmd(event, 'bold')" ontouchend="execCmdTouch(event, 'bold')">
                     <svg height="15px" version="1.1" viewBox="0 0 12 15" width="12px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Bold</title>
@@ -419,7 +419,7 @@
 var textActionsContainer, messageActionsContainer, sendActionsContainer;
 
 //actions HTML Elements
-var toggleTextAction, boldBtn;
+var toggleTextAction;
 
 window.onload = function () {
     //assign containers
@@ -431,13 +431,6 @@ window.onload = function () {
     toggleTextAction = document.getElementById('toggle-text-action');
     // var boldIcon = document.getElementById('bold-icon');
     // boldIcon.style.fill = '#0088dd'
-
-    boldBtn = document.getElementById('btn-bold');
-    boldBtn.addEventListener('touchend', function(event) {
-        event.preventDefault();
-        execCmd(event, 'bold');
-        console.log("touchend")
-    });
 
 };
 
@@ -459,6 +452,19 @@ var renderViewVariables = {
         this.isShowTextOptions = isShow;
     }
 };
+
+function execCmdTouch($event, cmd, value) {
+    if ($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+        $event.stopImmediatePropagation();
+    }
+
+    try {
+        document.execCommand(cmd, false, value);
+    } catch (error) {
+    }
+}
 
 function execCmd($event, cmd, value) {
     console.log('execCmd')
@@ -501,6 +507,11 @@ function getContent() {
             alert(content);
         }
     }
+}
+
+function toggleTextActionsTouch(event) {
+    renderViewVariables.showTextOptions = !renderViewVariables.showTextOptions;
+    event.preventDefault();
 }
 
 function toggleTextActions() {
