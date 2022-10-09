@@ -417,13 +417,14 @@
 </body>
 
 <script>
-    //containers HTML Elements
+//containers HTML Elements
 var textActionsContainer, messageActionsContainer, sendActionsContainer;
 
 //actions HTML Elements
 var toggleTextAction;
 
 var editorElement;
+var counter = 0;
 
 window.onload = function () {
     //assign containers
@@ -472,7 +473,7 @@ function execCmdTouch($event, cmd, value) {
 }
 
 function execCmd($event, cmd, value) {
-
+    counter++;
     if ($event) {
         $event.preventDefault();
         $event.stopPropagation();
@@ -484,11 +485,9 @@ function execCmd($event, cmd, value) {
         keepCaretPosition();
     } catch (error) {
         console.log("error")
-        
         editorElement.innerHTML = editorElement.innerHTML + 'error';
     }
-    
-        editorElement.innerHTML = editorElement.innerHTML + cmd;
+    editorElement.innerHTML = editorElement.innerHTML + cmd + counter;
 }
 
 const RichEditor = {
