@@ -472,8 +472,6 @@ function execCmdTouch($event, cmd, value) {
 }
 
 function execCmd($event, cmd, value) {
-    console.log($event.type);
-    editorElement.innerHTML = editorElement.innerHTML + $event.type;
 
     if ($event) {
         $event.preventDefault();
