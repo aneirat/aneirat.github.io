@@ -484,6 +484,8 @@ function execCmd($event, cmd, value) {
         keepCaretPosition();
     } catch (error) {
         console.log("error")
+        
+        editorElement.innerHTML = editorElement.innerHTML + 'error';
     }
 }
 
