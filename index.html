@@ -127,8 +127,10 @@
                 </g>
             </svg>
         </div>
-        <div class="editor"
-             contentEditable="true"></div>
+        <div id="editor" class="editor"
+             contentEditable="true">
+
+        </div>
         <div class="actions-container">
             <div id="message-actions-container" class="message-actions">
                 <span class="circle-container bg-light-blue">
@@ -421,11 +423,14 @@ var textActionsContainer, messageActionsContainer, sendActionsContainer;
 //actions HTML Elements
 var toggleTextAction;
 
+var editorElement;
+
 window.onload = function () {
     //assign containers
     textActionsContainer = document.getElementById('text-actions-container');
     messageActionsContainer = document.getElementById('message-actions-container');
     sendActionsContainer = document.getElementById('send-actions-container');
+    editorElement = document.getElementById('editor');
 
     //assign actions
     toggleTextAction = document.getElementById('toggle-text-action');
@@ -467,7 +472,9 @@ function execCmdTouch($event, cmd, value) {
 }
 
 function execCmd($event, cmd, value) {
-    console.log('execCmd')
+    console.log($event.type);
+    editorElement.innerHTML = editorElement.innerHTML + $event.type;
+
     if ($event) {
         $event.preventDefault();
         $event.stopPropagation();
