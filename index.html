@@ -127,10 +127,8 @@
                 </g>
             </svg>
         </div>
-        <div id="editor" class="editor"
-             contentEditable="true">
-
-        </div>
+        <div class="editor"
+             contentEditable="true"></div>
         <div class="actions-container">
             <div id="message-actions-container" class="message-actions">
                 <span class="circle-container bg-light-blue">
@@ -417,21 +415,17 @@
 </body>
 
 <script>
-//containers HTML Elements
+    //containers HTML Elements
 var textActionsContainer, messageActionsContainer, sendActionsContainer;
 
 //actions HTML Elements
 var toggleTextAction;
-
-var editorElement;
-var counter = 0;
 
 window.onload = function () {
     //assign containers
     textActionsContainer = document.getElementById('text-actions-container');
     messageActionsContainer = document.getElementById('message-actions-container');
     sendActionsContainer = document.getElementById('send-actions-container');
-    editorElement = document.getElementById('editor');
 
     //assign actions
     toggleTextAction = document.getElementById('toggle-text-action');
@@ -473,7 +467,6 @@ function execCmdTouch($event, cmd, value) {
 }
 
 function execCmd($event, cmd, value) {
-    counter++;
     if ($event) {
         $event.preventDefault();
         $event.stopPropagation();
@@ -485,9 +478,7 @@ function execCmd($event, cmd, value) {
         keepCaretPosition();
     } catch (error) {
         console.log("error")
-        editorElement.innerHTML = editorElement.innerHTML + 'error';
     }
-    editorElement.innerHTML = editorElement.innerHTML + cmd + counter;
 }
 
 const RichEditor = {
