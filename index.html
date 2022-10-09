@@ -51,7 +51,7 @@
 
         .editor {
             width: calc(100% - 60px);
-            min-height: calc(100vh - var(--actions-height));
+            min-height: calc(50vh - var(--actions-height));
             max-height: 100px;
             overflow: auto;
             border: none;
@@ -71,7 +71,7 @@
 
         .actions-container {
             position: fixed;
-            bottom: 0px;
+            bottom: 50%;
             left: 0px;
             right: 0px;
             height: var(--actions-height);
@@ -170,7 +170,7 @@
                 </span>
             </div>
             <div id="text-actions-container" class="text-actions">
-                <span class="circle-container bg-blue" onclick="toggleTextActions(event)">
+                <span class="circle-container bg-blue" onclick="toggleTextActions(event)" ontouchend="toggleTextActions(event)">
                     <svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Times</title>
                         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
