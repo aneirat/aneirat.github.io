@@ -51,7 +51,7 @@
 
         .editor {
             width: calc(100% - 60px);
-            min-height: calc(40vh - var(--actions-height));
+            min-height: calc(100vh - var(--actions-height));
             max-height: 100px;
             overflow: auto;
             border: none;
@@ -71,7 +71,7 @@
 
         .actions-container {
             position: fixed;
-            bottom: 50%;
+            bottom: 0px;
             left: 0px;
             right: 0px;
             height: var(--actions-height);
@@ -156,7 +156,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="toggleTextActions(event)">
+                <span class="btn" onclick="toggleTextActions(event)" ontouchend="toggleTextActions(event)">
                     <?xml version="1.0" encoding="UTF-8"?>
                     <svg width="25px" height="14px" viewBox="0 0 25 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Aa</title>
@@ -170,7 +170,7 @@
                 </span>
             </div>
             <div id="text-actions-container" class="text-actions">
-                <span class="circle-container bg-blue" ontouchend="toggleTextActions(event)">
+                <span class="circle-container bg-blue" onclick="toggleTextActions(event)">
                     <svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Times</title>
                         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -180,7 +180,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="execCmd(event, 'bold')">
+                <span class="btn" onclick="execCmd(event, 'bold')" ontouchend="execCmd(event, 'bold')">
                     <svg height="15px" version="1.1" viewBox="0 0 12 15" width="12px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Bold</title>
@@ -191,7 +191,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="execCmd(event, 'italic')">
+                <span class="btn" onclick="execCmd(event, 'italic')" ontouchend="execCmd(event, 'italic')">
                     <svg height="15px" version="1.1" viewBox="0 0 13 15" width="13px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Italic</title>
@@ -201,7 +201,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn">
+                <span class="btn" onclick="execCmd(event, 'strikeThrough')">
                     <svg height="15px" version="1.1" viewBox="0 0 13 15" width="13px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Strikethrough</title>
@@ -212,7 +212,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn">
+                <span class="btn" onclick="execCmd(event, 'Underline')">
                     <svg height="15px" version="1.1" viewBox="0 0 12 15" width="12px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Underline</title>
@@ -243,7 +243,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn">
+                <span class="btn" onclick="execCmd(event, 'insertUnorderedList')">
                     <svg height="17px" version="1.1" viewBox="0 0 22 17" width="22px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Bullet list</title>
@@ -268,7 +268,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn">
+                <span class="btn" onclick="execCmd(event, 'insertOrderedList')">
                     <svg height="17px" version="1.1" viewBox="0 0 23 17" width="23px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Numbered list</title>
@@ -322,7 +322,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn">
+                <span class="btn" onclick="execCmd(event, 'indent')">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Decrease indent</title>
@@ -344,7 +344,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn">
+                <span class="btn" onclick="execCmd(event, 'outdent')">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Increase indent</title>
