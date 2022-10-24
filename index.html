@@ -1192,7 +1192,7 @@ window.onload = function () {
     sendMessageIcon = document.getElementById('send-message-icon');
 
     assignOnChange();
-
+    disableTouchEvents();
 };
 
 function getContent(asString) {
@@ -1447,6 +1447,20 @@ function moveCursorAtTheEnd() {
     selection.removeAllRanges();
     selection.addRange(range);
 
+}
+
+function disableTouchEvents() {
+    richTextContainer.addEventListener('touchend', stopEvent, true);
+    richTextContainer.addEventListener('touchcancel', stopEvent, true);
+    richTextContainer.addEventListener('touchmove', stopEvent, true);
+}
+
+function stopEvent($event) {
+    if ($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+        $event.stopImmediatePropagation();
+    }
 }
 </script>
                 
