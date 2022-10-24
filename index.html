@@ -79,8 +79,8 @@
         }
 
         .editor-container {
-            width: calc(100% - 60px);
-            min-height: calc(100vh - var(--actions-height));
+            width: calc(100%);
+            min-height: calc(100vh);
         }
 
         .editor {
@@ -115,12 +115,15 @@
         #collapse-icon {
             display: none;
         }
+
         .expanded .editor {
             min-height: calc(100vh - var(--actions-height));
         }
+
         .expanded #expand-icon {
             display: none;
         }
+
         .expanded #collapse-icon {
             display: initial;
         }
@@ -167,7 +170,7 @@
             margin-left: 15px;
         }
 
-        .send-actions .circle-container{
+        .send-actions .circle-container {
             margin-right: 0px;
         }
 
@@ -175,6 +178,9 @@
             padding-left: 15px;
         }
 
+        .edit-mode #poll-attachment-action, .edit-mode #voice-note-action {
+            display: none;
+        }
         #loading-overlay {
             position: fixed;
             width: 100vw;
@@ -185,7 +191,7 @@
         }
 
         .overlay-actions {
-            position: absolute;
+            position: fixed;
             display: flex;
             bottom: 0px;
             left: 0px;
@@ -272,8 +278,8 @@
             <div class="loader"></div>
         </div>
     </div>
-    <div id="rich-text-container" class="rich-text-component">
-        <div class="expand-action" onclick="emitExpand(event)" ontouchend="emitExpand(event)">
+    <div class="rich-text-component" id="rich-text-container">
+        <div class="expand-action" ontouchend="emitExpand(event)">
             <svg height="18px"
                  id="expand-icon" version="1.1" viewBox="0 0 18 18" width="18px" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -290,7 +296,7 @@
                     </g>
                 </g>
             </svg>
-            <svg id="collapse-icon" class=""
+            <svg class="" id="collapse-icon"
                  viewBox="0 0 512 512"
                  xmlns="http://www.w3.org/2000/svg">
                 <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
@@ -307,7 +313,6 @@
         <div class="actions-container">
             <div class="message-actions" id="message-actions-container">
                 <span class="circle-container bg-light-blue" id="poll-attachment-action"
-                      onclick="attachFileClicked(event)"
                       ontouchend="attachFileClicked(event)">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -327,7 +332,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="toggleTextActions(event)" ontouchend="toggleTextActions(event)">
+                <span class="btn" ontouchend="toggleTextActionsTouch(event)">
                     <?xml version="1.0" encoding="UTF-8"?>
                     <svg height="14px" version="1.1" viewBox="0 0 25 14" width="25px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -346,8 +351,8 @@
                 </span>
             </div>
             <div class="text-actions" id="text-actions-container">
-                <span class="circle-container bg-blue" onclick="toggleTextActions(event)"
-                      ontouchend="toggleTextActions(event)">
+                <span class="circle-container bg-blue"
+                      ontouchend="toggleTextActionsTouch(event)">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Times</title>
@@ -360,7 +365,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="execCmd(event, 'bold')" ontouchend="execCmdTouch(event, 'bold')">
+                <span class="btn" ontouchend="execCmdTouch(event, 'bold')">
                     <svg height="15px" version="1.1" viewBox="0 0 12 15" width="12px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Bold</title>
@@ -371,7 +376,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="execCmd(event, 'italic')" ontouchend="execCmdTouch(event, 'italic')">
+                <span class="btn" ontouchend="execCmdTouch(event, 'italic')">
                     <svg height="15px" version="1.1" viewBox="0 0 13 15" width="13px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Italic</title>
@@ -381,7 +386,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="execCmd(event, 'strikeThrough')"
+                <span class="btn"
                       ontouchend="execCmdTouch(event, 'strikeThrough')">
                     <svg height="15px" version="1.1" viewBox="0 0 13 15" width="13px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -393,7 +398,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="execCmd(event, 'Underline')" ontouchend="execCmdTouch(event, 'Underline')">
+                <span class="btn" ontouchend="execCmdTouch(event, 'Underline')">
                     <svg height="15px" version="1.1" viewBox="0 0 12 15" width="12px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Underline</title>
@@ -408,7 +413,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="showAddLink(event)" ontouchend="showAddLink(event)">
+                <span class="btn" ontouchend="showAddLink(event)">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Link</title>
@@ -424,7 +429,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="execCmd(event, 'insertUnorderedList')"
+                <span class="btn"
                       ontouchend="execCmdTouch(event, 'insertUnorderedList')">
                     <svg height="17px" version="1.1" viewBox="0 0 22 17" width="22px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -450,7 +455,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="execCmd(event, 'insertOrderedList')"
+                <span class="btn"
                       ontouchend="execCmdTouch(event, 'insertOrderedList')">
                     <svg height="17px" version="1.1" viewBox="0 0 23 17" width="23px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -482,7 +487,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="execCmd(event, 'indent')" ontouchend="execCmdTouch(event, 'indent')">
+                <span class="btn" ontouchend="execCmdTouch(event, 'indent')">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Decrease indent</title>
@@ -504,7 +509,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="execCmd(event, 'outdent')" ontouchend="execCmdTouch(event, 'outdent')">
+                <span class="btn" ontouchend="execCmdTouch(event, 'outdent')">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Increase indent</title>
@@ -531,7 +536,7 @@
             </div>
             <div class="send-actions" id="send-actions-container">
                 <span class="btn circle-container bg-green" id="send-message-icon"
-                      onclick="sendClicked(event)" ontouchend="sendClicked(event)">
+                      ontouchend="sendClicked(event)">
                     <svg height="18px" version="1.1" viewBox="0 0 19 18" width="19px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Send Message</title>
@@ -540,19 +545,21 @@
                                transform="translate(-338.000000, -414.000000)">
                                 <g id="Group-30-Copy-8" transform="translate(0.000000, 360.000000)">
                                     <g id="Group-23" transform="translate(338.829268, 54.024390)">
-                                        <path d="M16.7938685,6.87332359 L2.6854782,0.183870288 C1.75615286,-0.257472166 0.63768281,0.122927598 0.187226988,1.03352519 C-0.0424565429,1.49784193 -0.0616668366,2.03551892 0.134307376,2.51447192 L2.3383051,7.91156802 L17.7394094,7.91156802 C17.5772541,7.45626923 17.2371296,7.08277606 16.7938685,6.87332359 Z"
-                                              fill="white"
-                                              id="Path"></path>
-                                        <path d="M2.3383051,9.13303417 L0.134307376,14.531347 C-0.248145467,15.4738294 0.22155717,16.5416685 1.18342315,16.9164499 C1.40120068,17.0012973 1.63333115,17.045385 1.86768943,17.046387 C2.15087691,17.046387 2.43041225,16.9837624 2.68544168,16.8631653 L16.793832,10.1712786 C17.2370931,9.96179034 17.5772541,9.58829718 17.7393729,9.13303417 L2.3383051,9.13303417 L2.3383051,9.13303417 Z"
-                                              fill="white"
-                                              id="Path"></path>
+                                        <path
+                                            d="M16.7938685,6.87332359 L2.6854782,0.183870288 C1.75615286,-0.257472166 0.63768281,0.122927598 0.187226988,1.03352519 C-0.0424565429,1.49784193 -0.0616668366,2.03551892 0.134307376,2.51447192 L2.3383051,7.91156802 L17.7394094,7.91156802 C17.5772541,7.45626923 17.2371296,7.08277606 16.7938685,6.87332359 Z"
+                                            fill="white"
+                                            id="Path"></path>
+                                        <path
+                                            d="M2.3383051,9.13303417 L0.134307376,14.531347 C-0.248145467,15.4738294 0.22155717,16.5416685 1.18342315,16.9164499 C1.40120068,17.0012973 1.63333115,17.045385 1.86768943,17.046387 C2.15087691,17.046387 2.43041225,16.9837624 2.68544168,16.8631653 L16.793832,10.1712786 C17.2370931,9.96179034 17.5772541,9.58829718 17.7393729,9.13303417 L2.3383051,9.13303417 L2.3383051,9.13303417 Z"
+                                            fill="white"
+                                            id="Path"></path>
                                     </g>
                                 </g>
                             </g>
                         </g>
                     </svg>
                 </span>
-                <span class="btn no-display" id="finish-edit-icon" onclick="sendClicked(event)" ontouchend="sendClicked(event)">
+                <span class="btn no-display" id="finish-edit-icon" ontouchend="sendClicked(event)">
                     <title>send message</title>
                    <svg viewBox="0 0 512 512"
                         xmlns="http://www.w3.org/2000/svg">
@@ -560,7 +567,7 @@
                            d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
                    </svg>
                 </span>
-                <span class="btn no-display" id="cancel-edit-action" onclick="onCancelEditClick(event)"
+                <span class="btn no-display" id="cancel-edit-action"
                       ontouchend="onCancelEditClick(event)">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -574,7 +581,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn no-display" id="voice-note-action" onclick="voiceMessageClicked(event)"
+                <span class="btn no-display" id="voice-note-action"
                       ontouchend="voiceMessageClicked(event)">
                     <svg height="19px" version="1.1" viewBox="0 0 14 19" width="14px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -591,7 +598,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn no-display" id="red-flag-action" onclick="toggleRedFlag(event)" ontouchend="toggleRedFlag(event)">
+                <span class="btn no-display" id="red-flag-action" ontouchend="toggleRedFlag(event)">
                     <svg height="20px" version="1.1" viewBox="0 0 20 20" width="20px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>flag</title>
@@ -606,15 +613,15 @@
                 </span>
             </div>
         </div>
-        <div id="add-link-container" onclick="cancelAddLink(event)" ontouchend="cancelLink(event)" class="no-display">
-            <div class="overlay-actions bg-white border-top" onclick="stopPropagation(event)">
+        <div class="no-display" id="add-link-container" ontouchend="cancelAddLink(event)">
+            <div class="overlay-actions bg-white border-top" ontouchend="stopPropagation(event)">
                 <input id="link-input"
                        onkeyup="(event.keyCode === 13 && applyLinkToSelection(event)) || (event.keyCode !== 13 && onLinkChange(event))"
                        placeholder="https://"
                        type="text"/>
 
                 <span class="btn circle-container bg-blue" id="cancel-link-button"
-                      onclick="cancelAddLink(event)" ontouchend="cancelLink(event)">
+                      ontouchend="cancelAddLink(event)">
                     <svg class="m-small" height="15px" version="1.1" viewBox="0 0 15 15" width="15px"
                          xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -628,7 +635,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn circle-container bg-blue no-display" id="apply-link-button" onclick="applyLinkToSelection(event)"
+                <span class="btn circle-container bg-blue no-display" id="apply-link-button"
                       ontouchend="applyLinkToSelection(event)">
                         <svg class="m-small" viewBox="0 0 512 512"
                              xmlns="http://www.w3.org/2000/svg">
@@ -948,20 +955,18 @@ var renderViewVariables = {
     },
     set editMode(isEdit) {
         if (isEdit) {
+            richTextContainer.classList.add('edit-mode');
             cancelEditAction.classList.remove('no-display');
             sendMessageIcon.classList.add('no-display');
             finishEditIcon.classList.remove('no-display');
-            renderViewVariables.attachmentsEnabled = false;
-            renderViewVariables.voiceNotesEnabled = false;
             if (isEdit) {
                 moveCursorAtTheEnd();
             }
         } else {
+            richTextContainer.classList.remove('edit-mode');
             cancelEditAction.classList.add('no-display');
             sendMessageIcon.classList.remove('no-display');
             finishEditIcon.classList.add('no-display');
-            renderViewVariables.attachmentsEnabled = true;
-            renderViewVariables.voiceNotesEnabled = true;
         }
         renderViewVariables.showTextOptions = false;
         this._isEditMode = isEdit;
@@ -1208,29 +1213,8 @@ function execCmdTouch($event, cmd, value) {
     }
 }
 
-function execCmd($event, cmd, value) {
-    if ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        $event.stopImmediatePropagation();
-    }
-
-    try {
-        document.execCommand(cmd, false, value);
-        keepCaretPosition();
-    } catch (error) {
-        console.log("error")
-    }
-}
-
 function toggleTextActionsTouch(event) {
     renderViewVariables.showTextOptions = !renderViewVariables.showTextOptions;
-    event.preventDefault();
-}
-
-function toggleTextActions(event) {
-    renderViewVariables.showTextOptions = !renderViewVariables.showTextOptions;
-    keepCaretPosition();
     event.preventDefault();
 }
 
@@ -1285,7 +1269,6 @@ function sendClicked($event) {
 
 function voiceMessageClicked($event) {
     if ($event) {
-        $event.preventDefault();
         $event.stopPropagation();
         $event.stopImmediatePropagation();
     }
@@ -1294,7 +1277,6 @@ function voiceMessageClicked($event) {
 
 function attachFileClicked($event) {
     if ($event) {
-        $event.preventDefault();
         $event.stopPropagation();
         $event.stopImmediatePropagation();
     }
@@ -1394,7 +1376,7 @@ function applyLinkToSelection($event) {
         getSelection().removeAllRanges();
         getSelection().addRange(selectionRange);
 
-        self.execCmd(null, 'createLink', linkValue);
+        execCmdTouch(null, 'createLink', linkValue);
         linkInput.value = '';
         renderViewVariables.showAddLink = false;
     } else {
@@ -1422,11 +1404,11 @@ function showAddLink($event) {
     selectionRange = selection.getRangeAt(0);
     renderViewVariables.showAddLink = true;
     linkInput.value = '';
+    linkInput.focus();
 }
 
 function stopPropagation($event) {
     if ($event) {
-        $event.preventDefault();
         $event.stopPropagation();
         $event.stopImmediatePropagation();
     }
@@ -1457,7 +1439,7 @@ function moveCursorAtTheEnd() {
     var selection = document.getSelection();
     var range = document.createRange();
 
-    if (editor.lastChild.nodeType == 3) {
+    if (editor.lastChild && editor.lastChild.nodeType == 3) {
         range.setStart(editor.lastChild, editor.lastChild.length);
     } else {
         range.setStart(editor, editor.childNodes.length);
