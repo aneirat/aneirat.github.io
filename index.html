@@ -1208,6 +1208,7 @@ function execCmdTouch($event, cmd, value) {
 
     try {
         document.execCommand(cmd, false, value);
+        keepCaretPosition();
     } catch (error) {
     }
 }
