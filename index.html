@@ -191,7 +191,7 @@
         }
 
         .overlay-actions {
-            position: absolute;
+            position: fixed;
             display: flex;
             bottom: 0px;
             left: 0px;
@@ -1425,6 +1425,7 @@ function showAddLink($event) {
     selectionRange = selection.getRangeAt(0);
     renderViewVariables.showAddLink = true;
     linkInput.value = '';
+    linkInput.focus();
 }
 
 function stopPropagation($event) {
