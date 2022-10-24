@@ -79,8 +79,8 @@
         }
 
         .editor-container {
-            width: calc(100% - 60px);
-            min-height: calc(100vh - var(--actions-height));
+            width: calc(100%);
+            min-height: calc(100vh);
         }
 
         .editor {
@@ -1424,7 +1424,6 @@ function showAddLink($event) {
     var selection = window.getSelection();
     selectionRange = selection.getRangeAt(0);
     renderViewVariables.showAddLink = true;
-    editor.innerHTML = editor.innerHTML + "link clicked"
     linkInput.value = '';
 }
 
