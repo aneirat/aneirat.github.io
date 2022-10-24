@@ -165,9 +165,13 @@
             align-items: center;
         }
 
-        .send-actions .btn, .text-actions .btn {
+        .send-actions .btn {
             margin-right: 10px;
             margin-left: 15px;
+        }
+        .text-actions .btn {
+            padding-right: 10px;
+            padding-left: 15px;
         }
 
         .send-actions .circle-container {
@@ -1450,9 +1454,11 @@ function moveCursorAtTheEnd() {
 }
 
 function disableUnusedTouchEvents() {
-    textActionsContainer.childNodes.forEach(function(node) {
-        node.addEventListener('touchend', stopEvent, true);
-    });
+    // textActionsContainer.childNodes.forEach(function(node) {
+    //     node.addEventListener('touchstart', stopEvent, true);
+    //     node.addEventListener('touchcancel', stopEvent, true);
+    //     node.addEventListener('touchmove', stopEvent, true);
+    // });
 }
 
 function stopEvent($event) {
