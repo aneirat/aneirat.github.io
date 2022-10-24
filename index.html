@@ -314,7 +314,7 @@
                  placeholder=""
             ></div>
         </div>
-        <div class="actions-container">
+        <div class="actions-container" ontouchend="stopEvent()">
             <div class="message-actions" id="message-actions-container">
                 <span class="circle-container bg-light-blue" id="poll-attachment-action"
                       ontouchend="attachFileClicked(event)">
@@ -1196,7 +1196,7 @@ window.onload = function () {
     sendMessageIcon = document.getElementById('send-message-icon');
 
     assignOnChange();
-    disableUnusedTouchEvents();
+
 };
 
 function getContent(asString) {
@@ -1451,14 +1451,6 @@ function moveCursorAtTheEnd() {
     selection.removeAllRanges();
     selection.addRange(range);
 
-}
-
-function disableUnusedTouchEvents() {
-    // textActionsContainer.childNodes.forEach(function(node) {
-    //     node.addEventListener('touchstart', stopEvent, true);
-    //     node.addEventListener('touchcancel', stopEvent, true);
-    //     node.addEventListener('touchmove', stopEvent, true);
-    // });
 }
 
 function stopEvent($event) {
