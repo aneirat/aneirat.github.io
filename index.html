@@ -178,14 +178,9 @@
             padding-left: 15px;
         }
 
-        .edit-mode #send-message-icon, .edit-mode #poll-attachment-action, .edit-mode #voice-note-action {
+        .edit-mode #poll-attachment-action, .edit-mode #voice-note-action {
             display: none;
         }
-
-        #cancel-edit-action, #finish-edit-icon {
-            display: none;
-        }
-
         #loading-overlay {
             position: fixed;
             width: 100vw;
@@ -251,7 +246,7 @@
             top: 0px;
         }
 
-        #link-input {
+        #link-input {aaaaa
             width: 100%;
             border: none;
             padding: 0px 20px;
@@ -961,11 +956,17 @@ var renderViewVariables = {
     set editMode(isEdit) {
         if (isEdit) {
             richTextContainer.classList.add('edit-mode');
+            cancelEditAction.classList.remove('no-display');
+            sendMessageIcon.classList.add('no-display');
+            finishEditIcon.classList.remove('no-display');
             if (isEdit) {
                 moveCursorAtTheEnd();
             }
         } else {
             richTextContainer.classList.remove('edit-mode');
+            cancelEditAction.classList.add('no-display');
+            sendMessageIcon.classList.remove('no-display');
+            finishEditIcon.classList.add('no-display');
         }
         renderViewVariables.showTextOptions = false;
         this._isEditMode = isEdit;
@@ -1208,7 +1209,6 @@ function execCmdTouch($event, cmd, value) {
 
     try {
         document.execCommand(cmd, false, value);
-        keepCaretPosition();
     } catch (error) {
     }
 }
