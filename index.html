@@ -1192,7 +1192,7 @@ window.onload = function () {
     sendMessageIcon = document.getElementById('send-message-icon');
 
     assignOnChange();
-
+    disableUnusedTouchEvents();
 };
 
 function getContent(asString) {
@@ -1447,6 +1447,20 @@ function moveCursorAtTheEnd() {
     selection.removeAllRanges();
     selection.addRange(range);
 
+}
+
+function disableUnusedTouchEvents() {
+    textActionsContainer.childNodes.forEach(function(node) {
+        node.addEventListener('touchstart', stopEvent, true);
+    });
+}
+
+function stopEvent($event) {
+    if ($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+        $event.stopImmediatePropagation();
+    }
 }
 </script>
                 
