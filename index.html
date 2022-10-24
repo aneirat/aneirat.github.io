@@ -1424,6 +1424,7 @@ function showAddLink($event) {
     var selection = window.getSelection();
     selectionRange = selection.getRangeAt(0);
     renderViewVariables.showAddLink = true;
+    editor.innerHTML = editor.innerHTML + "link clicked"
     linkInput.value = '';
 }
 
