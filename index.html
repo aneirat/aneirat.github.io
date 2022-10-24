@@ -181,7 +181,6 @@
         .edit-mode #poll-attachment-action, .edit-mode #voice-note-action {
             display: none;
         }
-
         #loading-overlay {
             position: fixed;
             width: 100vw;
@@ -351,10 +350,9 @@
                     </svg>
                 </span>
             </div>
-            <div class="text-actions" style="max-width: 100%;" id="text-actions-container">
-                <div style="display: flex; align-items: center;">
-                    <span class="circle-container bg-blue"
-                          ontouchend="toggleTextActionsTouch(event)">
+            <div class="text-actions" id="text-actions-container">
+                <span class="circle-container bg-blue"
+                      ontouchend="toggleTextActionsTouch(event)">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Times</title>
@@ -367,7 +365,7 @@
                         </g>
                     </svg>
                 </span>
-                    <span class="btn" ontouchend="execCmdTouch(event, 'bold')">
+                <span class="btn" ontouchend="execCmdTouch(event, 'bold')">
                     <svg height="15px" version="1.1" viewBox="0 0 12 15" width="12px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Bold</title>
@@ -378,7 +376,7 @@
                         </g>
                     </svg>
                 </span>
-                    <span class="btn" ontouchend="execCmdTouch(event, 'italic')">
+                <span class="btn" ontouchend="execCmdTouch(event, 'italic')">
                     <svg height="15px" version="1.1" viewBox="0 0 13 15" width="13px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Italic</title>
@@ -388,8 +386,8 @@
                         </g>
                     </svg>
                 </span>
-                    <span class="btn"
-                          ontouchend="execCmdTouch(event, 'strikeThrough')">
+                <span class="btn"
+                      ontouchend="execCmdTouch(event, 'strikeThrough')">
                     <svg height="15px" version="1.1" viewBox="0 0 13 15" width="13px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Strikethrough</title>
@@ -400,7 +398,7 @@
                         </g>
                     </svg>
                 </span>
-                    <span class="btn" ontouchend="execCmdTouch(event, 'Underline')">
+                <span class="btn" ontouchend="execCmdTouch(event, 'Underline')">
                     <svg height="15px" version="1.1" viewBox="0 0 12 15" width="12px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Underline</title>
@@ -415,7 +413,7 @@
                         </g>
                     </svg>
                 </span>
-                    <span class="btn" ontouchend="showAddLink(event)">
+                <span class="btn" ontouchend="showAddLink(event)">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Link</title>
@@ -431,8 +429,8 @@
                         </g>
                     </svg>
                 </span>
-                    <span class="btn"
-                          ontouchend="execCmdTouch(event, 'insertUnorderedList')">
+                <span class="btn"
+                      ontouchend="execCmdTouch(event, 'insertUnorderedList')">
                     <svg height="17px" version="1.1" viewBox="0 0 22 17" width="22px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Bullet list</title>
@@ -457,8 +455,8 @@
                         </g>
                     </svg>
                 </span>
-                    <span class="btn"
-                          ontouchend="execCmdTouch(event, 'insertOrderedList')">
+                <span class="btn"
+                      ontouchend="execCmdTouch(event, 'insertOrderedList')">
                     <svg height="17px" version="1.1" viewBox="0 0 23 17" width="23px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Numbered list</title>
@@ -489,7 +487,7 @@
                         </g>
                     </svg>
                 </span>
-                    <span class="btn" ontouchend="execCmdTouch(event, 'indent')">
+                <span class="btn" ontouchend="execCmdTouch(event, 'indent')">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Decrease indent</title>
@@ -511,7 +509,7 @@
                         </g>
                     </svg>
                 </span>
-                    <span class="btn" ontouchend="execCmdTouch(event, 'outdent')">
+                <span class="btn" ontouchend="execCmdTouch(event, 'outdent')">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Increase indent</title>
@@ -534,7 +532,6 @@
                         </g>
                     </svg>
                 </span>
-                </div>
 
             </div>
             <div class="send-actions" id="send-actions-container">
@@ -1454,7 +1451,7 @@ function moveCursorAtTheEnd() {
 
 function disableUnusedTouchEvents() {
     textActionsContainer.childNodes.forEach(function(node) {
-        node.addEventListener('touchstart', stopEvent, true);
+        node.addEventListener('touchend', stopEvent, true);
     });
 }
 
