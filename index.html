@@ -1192,7 +1192,7 @@ window.onload = function () {
     sendMessageIcon = document.getElementById('send-message-icon');
 
     assignOnChange();
-    disableTouchEvents();
+    disableUnusedTouchEvents();
 };
 
 function getContent(asString) {
@@ -1449,10 +1449,8 @@ function moveCursorAtTheEnd() {
 
 }
 
-function disableTouchEvents() {
+function disableUnusedTouchEvents() {
     textActionsContainer.addEventListener('touchstart', stopEvent, true);
-    richTextContainer.addEventListener('touchcancel', stopEvent, true);
-    richTextContainer.addEventListener('touchmove', stopEvent, true);
 }
 
 function stopEvent($event) {
