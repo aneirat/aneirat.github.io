@@ -181,6 +181,7 @@
         .edit-mode #poll-attachment-action, .edit-mode #voice-note-action {
             display: none;
         }
+
         #loading-overlay {
             position: fixed;
             width: 100vw;
@@ -350,9 +351,10 @@
                     </svg>
                 </span>
             </div>
-            <div class="text-actions" id="text-actions-container" ontouchstart="stopEvent()" ontouchend="stopEvent()">
-                <span class="circle-container bg-blue"
-                      ontouchend="toggleTextActionsTouch(event)">
+            <div class="text-actions" style="max-width: 100%;" id="text-actions-container">
+                <div style="display: flex; align-items: center;">
+                    <span class="circle-container bg-blue"
+                          ontouchend="toggleTextActionsTouch(event)">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Times</title>
@@ -365,7 +367,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="execCmdTouch(event, 'bold')">
+                    <span class="btn" ontouchend="execCmdTouch(event, 'bold')">
                     <svg height="15px" version="1.1" viewBox="0 0 12 15" width="12px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Bold</title>
@@ -376,7 +378,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="execCmdTouch(event, 'italic')">
+                    <span class="btn" ontouchend="execCmdTouch(event, 'italic')">
                     <svg height="15px" version="1.1" viewBox="0 0 13 15" width="13px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Italic</title>
@@ -386,8 +388,8 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn"
-                      ontouchend="execCmdTouch(event, 'strikeThrough')">
+                    <span class="btn"
+                          ontouchend="execCmdTouch(event, 'strikeThrough')">
                     <svg height="15px" version="1.1" viewBox="0 0 13 15" width="13px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Strikethrough</title>
@@ -398,7 +400,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="execCmdTouch(event, 'Underline')">
+                    <span class="btn" ontouchend="execCmdTouch(event, 'Underline')">
                     <svg height="15px" version="1.1" viewBox="0 0 12 15" width="12px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Underline</title>
@@ -413,7 +415,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="showAddLink(event)">
+                    <span class="btn" ontouchend="showAddLink(event)">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Link</title>
@@ -429,8 +431,8 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn"
-                      ontouchend="execCmdTouch(event, 'insertUnorderedList')">
+                    <span class="btn"
+                          ontouchend="execCmdTouch(event, 'insertUnorderedList')">
                     <svg height="17px" version="1.1" viewBox="0 0 22 17" width="22px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Bullet list</title>
@@ -455,8 +457,8 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn"
-                      ontouchend="execCmdTouch(event, 'insertOrderedList')">
+                    <span class="btn"
+                          ontouchend="execCmdTouch(event, 'insertOrderedList')">
                     <svg height="17px" version="1.1" viewBox="0 0 23 17" width="23px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Numbered list</title>
@@ -487,7 +489,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="execCmdTouch(event, 'indent')">
+                    <span class="btn" ontouchend="execCmdTouch(event, 'indent')">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Decrease indent</title>
@@ -509,7 +511,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="execCmdTouch(event, 'outdent')">
+                    <span class="btn" ontouchend="execCmdTouch(event, 'outdent')">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Increase indent</title>
@@ -532,6 +534,7 @@
                         </g>
                     </svg>
                 </span>
+                </div>
 
             </div>
             <div class="send-actions" id="send-actions-container">
@@ -651,812 +654,7 @@
 
 </body>
 
-
-                    <script>const ELEMENTS_TYPES = {
-    'text': 'text',
-    'link': 'link',
-    'user': 'user',
-    'rich_text_section': 'rich_text_section',
-    'rich_text_list': 'rich_text_list',
-};
-
-const CH_LIST_TYPES = {
-    'ORDERED': 'ordered',
-    'BULLET': 'bullet'
-};
-
-function createContentElementStyle() {
-    return {
-        bold: undefined,
-        italic: undefined,
-        strike: undefined,
-        under_line: undefined,
-        list_type: undefined
-    };
-}
-
-function createContentElements() {
-    return {
-        type: undefined,
-        url: undefined,
-        style: undefined,
-        elements: undefined,
-        text: undefined,
-        user_id: undefined,
-        user_name: undefined
-    };
-}
-
-var messageText = '';
-
-function getChObjectMessage(htmlString, parentPayLoad, isRoot) {
-    messageText = '';
-    var components = htmlToObject(htmlString, parentPayLoad, isRoot);
-    return{
-        content: {
-            text: messageText,
-            components: [components]
-        }
-    };
-}
-
-function htmlToObject(htmlString, parentPayLoad, isRoot) {
-    var payload = createContentElements();
-    var root = typeof htmlString === 'string' ? convertStringToHTML(htmlString) : htmlString;
-    if (root.nodeType !== 3) {
-        if (root.nodeName === 'UL') {
-            payload.type = ELEMENTS_TYPES.rich_text_list;
-            payload.style = payload.style || createContentElementStyle();
-            payload.style.list_type = CH_LIST_TYPES.BULLET;
-        } else if (root.nodeName === 'OL') {
-            payload.type = ELEMENTS_TYPES.rich_text_list;
-            payload.style = payload.style || createContentElementStyle();
-            payload.style.list_type = CH_LIST_TYPES.ORDERED;
-        } else {
-            payload.type = ELEMENTS_TYPES.rich_text_section;
-        }
-        if (root.nodeName === 'B') {
-            payload.style = payload.style || createContentElementStyle();
-            payload.style.bold = true;
-        }
-
-        if (root.nodeName === 'U') {
-            payload.style = payload.style || createContentElementStyle();
-            payload.style.under_line = true;
-        }
-
-        if (root.nodeName === 'I') {
-            payload.style = payload.style || createContentElementStyle();
-            payload.style.italic = true;
-        }
-
-        if (root.nodeName === 'STRIKE') {
-            payload.style = payload.style || createContentElementStyle();
-            payload.style.strike = true;
-        }
-    }
-    payload['elements'] = [];
-    if (root.nodeName === 'DIV' && !isRoot) {
-        payload['elements'].push({
-            type: ELEMENTS_TYPES.text,
-            text: '\n'
-        });
-        messageText += '\n';
-    }
-    for (var i = 0; i < root.childNodes.length; i++) {
-        //todo for user mention and dynamic fields
-        if ((root.childNodes[i].nodeName === 'SPAN' && (root.childNodes[i]['classList'].contains('user-mention') ||
-                root.childNodes[i]['classList'].contains('h-dynamic-field'))) ||
-            root.childNodes[i].nodeName === '#text') {
-            var element = createContentElements();
-            if (root.childNodes[i].nodeName === '#text') {
-                element.type = ELEMENTS_TYPES.text;
-                element.text = root.childNodes[i].textContent || '';
-            } else {
-                element.type = ELEMENTS_TYPES.user;
-                element.text = '';
-                if (root.childNodes[i]['classList'].contains('h-dynamic-field')) {
-                    element.user_id = $(root.childNodes[i]).attr('field-code');
-                } else {
-                    element.user_id = root.childNodes[i].textContent || '';
-                }
-                if (element.user_id) {
-                    element.user_name = this.userMap[element.user_id].first_name + ' ' + this.userMap[element.user_id].last_name;
-
-                }
-            }
-            if ((parentPayLoad.style && parentPayLoad.style.bold) ||
-                (payload.style && payload.style.bold)) {
-                element.style = element.style || createContentElementStyle();
-                element.style.bold = true;
-            }
-            if ((parentPayLoad.style && parentPayLoad.style.italic) ||
-                (payload.style && payload.style.italic)) {
-                element.style = element.style || createContentElementStyle();
-                element.style.italic = true;
-            }
-            if ((parentPayLoad.style && parentPayLoad.style.strike) ||
-                (payload.style && payload.style.strike)) {
-                element.style = element.style || createContentElementStyle();
-                element.style.strike = true;
-            }
-            if ((parentPayLoad.style && parentPayLoad.style.under_line) ||
-                (payload.style && payload.style.under_line)) {
-                element.style = element.style || createContentElementStyle();
-                element.style.under_line = true;
-            }
-            messageText += (element.text || element.user_name);
-            payload['elements'].push(element);
-        } else if (root.childNodes[i].nodeName === 'A') {
-            var element = createContentElements();
-            element.type = ELEMENTS_TYPES.link;
-            element.text = root.childNodes[i].textContent || '';
-            element.url = root.childNodes[i]['href'] || '';
-            payload['elements'].push(element);
-            messageText += element.text;
-        } else if (root.childNodes[i].nodeName === 'BR') {
-            payload['elements'].push({
-                type: ELEMENTS_TYPES.text,
-                text: '\n'
-            });
-            messageText += '\n';
-        } else {
-            payload['elements'].push(htmlToObject(root.childNodes[i], payload))
-        }
-    }
-    return payload;
-}
-
-function jsonToHtml(components, isList) {
-    var html = "";
-    if (components) {
-        for (let i = 0; i < components.length; i++) {
-            let htmlBlock = "";
-            if (components[i].type === ELEMENTS_TYPES.text) {
-                htmlBlock += components[i].text;
-                var urlRegex = /(https?:\/\/[^\s]+)/g;
-                htmlBlock = htmlBlock.replace(urlRegex, url => '<a target="_blank" href="' + url + '">' + url + '</a>');
-            } else if (components[i].type === ELEMENTS_TYPES.user) {
-                htmlBlock += '<span field-code="' + components[i].user_id + '" class="h-dynamic-field" contenteditable="false">@' + components[i].user_name + '</span>';
-            } else if (components[i].type === ELEMENTS_TYPES.link) {
-                htmlBlock += '<a href="' + components[i].url + '" >' + components[i].text + '</a>';
-            } else if (components[i].type === ELEMENTS_TYPES.rich_text_section) {
-                if (isList) {
-                    htmlBlock += "<li>" + jsonToHtml(components[i].elements) + "</li>";
-                } else {
-                    htmlBlock += jsonToHtml(components[i].elements);
-                }
-            } else if (components[i].type === ELEMENTS_TYPES.rich_text_list) {
-                let listStyle = components[i].style;
-                if (listStyle && listStyle.list_type === CH_LIST_TYPES.BULLET) {
-                    htmlBlock += "<ul>" + jsonToHtml(components[i].elements, true) + "</ul>";
-                } else {
-                    htmlBlock += "<ol>" + jsonToHtml(components[i].elements, true) + "</ol>";
-                }
-            }
-            let style = components[i].style;
-            if (style && style.bold) {
-                htmlBlock = "<b>" + htmlBlock + "</b>";
-            }
-            if (style && style.italic) {
-                htmlBlock = "<i>" + htmlBlock + "</i>";
-            }
-            if (style && style.strike) {
-                htmlBlock = "<strike>" + htmlBlock + "</strike>";
-            }
-            if (style && style.under_line) {
-                htmlBlock = "<u>" + htmlBlock + "</u>";
-            }
-            html += htmlBlock;
-        }
-    }
-    html = html.replace(/\n/g, '<br>');
-    return html;
-}
-
-function convertStringToHTML(str) {
-    var parser = new DOMParser();
-    var doc = parser.parseFromString(str, 'text/html');
-    if (doc.body.childNodes.length > 1) {
-        return doc.body;
-    } else {
-        return doc.body.childNodes[0];
-    }
-}
-</script>
-                
-
-                    <script>const HANDLERS = {
-    HEIGHT_CHANGED: 'heightChanged',
-    EXPAND_TOGGLED: 'expandToggled',
-    ADD_VOICE_MESSAGE_CLICKED: 'addVoiceMessageClicked',
-    ADD_IMAGE_CLICKED: 'addImageClicked',
-    SEND_CLICKED: 'sendClicked',
-    TEXT_CHANGED: 'textChanged',
-    TEXT_FOCUSED: 'textFocused',
-    RED_FLAG_TOGGLED: 'redFlagToggled',
-    CANCEL_EDIT_CLICKED: 'cancelEditClicked'
-};
-
-//editor element
-var editor, editorConfigurations = {
-    'initialContent': '',
-    'showRedFlag': true,
-    'placeholderText': '',
-    'androidBridgeName': undefined, // Not needed in iOS
-    'eventsHandlers': {}
-};
-
-//containers HTML Elements
-var richTextContainer, textActionsContainer, messageActionsContainer, sendActionsContainer, loadingOverlayContainer,
-    addLinkContainer,
-    linkInput;
-
-//actions HTML Elements
-var toggleTextAction, voiceNoteAction, cancelEditAction, pollAttachmentAction, redFlagAction, applyLinkAction,
-    cancelLinkAction;
-
-//icons Elements
-var redFlagIcon, finishEditIcon, sendMessageIcon;
-
-var editorScrollHeight, selectionRange, editorObserver;
-var renderViewVariables = {
-    _isShowTextOptions: false,
-    get showTextOptions() {
-        return this._isShowTextOptions;
-    },
-    set showTextOptions(isShow) {
-        if (isShow) {
-            textActionsContainer.style.width = '100%';
-            sendActionsContainer.style.width = renderViewVariables.editMode ? '100px' : '50px';
-            messageActionsContainer.classList.add('no-display');
-        } else {
-            textActionsContainer.style.width = '0px';
-            sendActionsContainer.style.width = 'unset';
-            messageActionsContainer.classList.remove('no-display');
-        }
-        this._isShowTextOptions = isShow;
-    },
-    _isRedFlag: false,
-    get redFlag() {
-        return this._isRedFlag;
-    },
-    set redFlag(isFlag) {
-        if (isFlag) {
-            redFlagIcon.style.fill = '#ca4545';
-        } else {
-            redFlagIcon.style.fill = '#C4C4C4';
-        }
-        this._isRedFlag = isFlag;
-    },
-    _isShowRedFlag: false,
-    get showRedFlag() {
-        return this._isShowRedFlag;
-    },
-    set showRedFlag(isFlag) {
-        if (isFlag) {
-            redFlagAction.classList.remove('no-display');
-        } else {
-            redFlagAction.classList.add('no-display');
-        }
-        this._isShowRedFlag = isFlag;
-    },
-    _isDisabled: false,
-    get disabled() {
-        return this._isDisabled;
-    },
-    set disabled(isDis) {
-        editor.setAttribute('contenteditable', !isDis);
-        this._isDisabled = isDis;
-    },
-    _isEditMode: false,
-    get editMode() {
-        return this._isEditMode;
-    },
-    set editMode(isEdit) {
-        if (isEdit) {
-            richTextContainer.classList.add('edit-mode');
-            cancelEditAction.classList.remove('no-display');
-            sendMessageIcon.classList.add('no-display');
-            finishEditIcon.classList.remove('no-display');
-            if (isEdit) {
-                moveCursorAtTheEnd();
-            }
-        } else {
-            richTextContainer.classList.remove('edit-mode');
-            cancelEditAction.classList.add('no-display');
-            sendMessageIcon.classList.remove('no-display');
-            finishEditIcon.classList.add('no-display');
-        }
-        renderViewVariables.showTextOptions = false;
-        this._isEditMode = isEdit;
-    },
-    _isExpanded: false,
-    get expanded() {
-        return this._isExpanded;
-    },
-    set expanded(isExpand) {
-        if (isExpand) {
-            richTextContainer.classList.add('expanded');
-        } else {
-            richTextContainer.classList.remove('expanded');
-        }
-        this._isExpanded = isExpand;
-    },
-    _isAttachments: false,
-    get attachmentsEnabled() {
-        return this._isAttachments;
-    },
-    set attachmentsEnabled(isAttach) {
-        if (isAttach) {
-            pollAttachmentAction.classList.remove('no-display');
-        } else {
-            pollAttachmentAction.classList.add('no-display');
-        }
-        this._isAttachments = isAttach;
-    },
-    _isVoiceNotes: false,
-    get voiceNotesEnabled() {
-        return this._isVoiceNotes;
-    },
-    set voiceNotesEnabled(isVoice) {
-        if (isVoice) {
-            voiceNoteAction.classList.remove('no-display');
-        } else {
-            voiceNoteAction.classList.add('no-display');
-        }
-        this._isVoiceNotes = isVoice;
-    },
-    _isPolls: false,
-    get pollsEnabled() {
-        return this._isPolls;
-    },
-    set pollsEnabled(isEnabled) {
-        if (isEnabled) {
-            //todo: show polls button
-        } else {
-            //todo: hide polls button
-        }
-        this._isPolls = isEnabled;
-    },
-    _isLoading: false,
-    get loading() {
-        return this._isLoading;
-    },
-    set loading(isLoad) {
-        if (isLoad) {
-            loadingOverlayContainer.classList.remove('no-display');
-        } else {
-            loadingOverlayContainer.classList.add('no-display');
-        }
-        this._isLoading = isLoad;
-    },
-    _placeholderText: '',
-    get placeholder() {
-        return this._placeholderText;
-    },
-    set placeholder(textPlaceholder) {
-        editor.setAttribute('placeholder', textPlaceholder);
-        this._placeholderText = textPlaceholder;
-    },
-    _isAddLink: false,
-    get showAddLink() {
-        return this._isAddLink;
-    },
-    set showAddLink(isShow) {
-        if (isShow) {
-            addLinkContainer.classList.remove('no-display');
-        } else {
-            addLinkContainer.classList.add('no-display');
-        }
-        this._isAddLink = isShow;
-    },
-    _isApplyLink: false,
-    get showApplyLink() {
-        return this._isApplyLink;
-    },
-    set showApplyLink(isShow) {
-        if (isShow) {
-            applyLinkAction.classList.remove('no-display');
-            cancelLinkAction.classList.add('no-display');
-        } else {
-            applyLinkAction.classList.add('no-display');
-            cancelLinkAction.classList.remove('no-display');
-        }
-        this._isApplyLink = isShow;
-    },
-    _isLinkError: false,
-    get linkError() {
-        return this._isLinkError;
-    },
-    set linkError(isError) {
-        if (isError) {
-            linkInput.classList.add('error');
-        } else {
-            linkInput.classList.remove('error');
-        }
-        this._isLinkError = isError;
-    },
-    _isSendButtonDisabled: false,
-    get sendButtonDisabled() {
-        return this._isSendButtonDisabled;
-    },
-    set sendButtonDisabled(isDisabled) {
-        if (isDisabled) {
-            sendMessageIcon.classList.add('disabled');
-            sendMessageIcon.classList.remove('circle-container', 'bg-green');
-        } else {
-            sendMessageIcon.classList.remove('disabled');
-            sendMessageIcon.classList.add('circle-container', 'bg-green');
-        }
-        this._isSendButtonDisabled = isDisabled;
-    },
-};
-
-const RichEditor = {
-    init: (configurations) => {
-        editorConfigurations = configurations;
-        if (configurations.initialContent) {
-            setEditorInnerHtml(configurations.initialContent);
-        }
-        if (configurations.placeholderText) {
-            renderViewVariables.placeholder = configurations.placeholderText;
-        }
-
-        renderViewVariables.showRedFlag = configurations.showRedFlag;
-        renderViewVariables.disabled = configurations.disabled;
-        renderViewVariables.editMode = configurations.editMode;
-        renderViewVariables.attachmentsEnabled = configurations.sendAttachmentsEnabled;
-        renderViewVariables.voiceNotesEnabled = configurations.sendVoiceNotesEnabled;
-        renderViewVariables.pollsEnabled = configurations.addPollsEnabled;
-    },
-    toObject: (htmlString) => {
-        var wrapHtmlString = '<div>' + htmlString + '</div>';
-        return getChObjectMessage(wrapHtmlString, {}, true);
-    },
-    toHTML: (jsonObject) => {
-        return jsonToHtml(getJsonElements(jsonObject));
-    },
-    setContentHtml: (htmlString, editMode) => {
-        setEditorInnerHtml(htmlString);
-        renderViewVariables.editMode = editMode;
-    },
-    setContentJson: (jsonObject, editMode) => {
-        var htmlString = jsonToHtml(getJsonElements(jsonObject));
-        setEditorInnerHtml(htmlString);
-        renderViewVariables.editMode = editMode;
-    },
-    disable: (isDisabled) => {
-        renderViewVariables.disabled = isDisabled;
-    },
-    destroy: () => {
-        //todo: destroy the component
-    },
-    setRedFlag: (redFlag) => {
-        renderViewVariables.redFlag = redFlag;
-    },
-    getRedFlag: () => {
-        return renderViewVariables.redFlag;
-    },
-    enableAttachments: (isEnabled) => {
-        renderViewVariables.attachmentsEnabled = isEnabled;
-    },
-    enableVoiceNotes: (isEnabled) => {
-        renderViewVariables.voiceNotesEnabled = isEnabled;
-    },
-    enablePolls: (isEnabled) => {
-        renderViewVariables.pollsEnabled = isEnabled;
-    },
-    reset: () => {
-        setEditorInnerHtml('');
-    },
-    setLoading: (isLoading) => {
-        renderViewVariables.loading = isLoading;
-    },
-    setEditMode: (isEditMode) => {
-        renderViewVariables.editMode = isEditMode;
-    },
-    getContent: getContent,
-    disableSendButton: (isDisabled) => {
-        renderViewVariables.sendButtonDisabled = isDisabled;
-    },
-    setExpand: (isExpanded) => {
-        renderViewVariables.expanded = isExpanded;
-    }
-};
-
-window.onload = function () {
-    editor = document.getElementById('editor');
-    editorScrollHeight = editor.scrollHeight;
-    //assign containers
-    richTextContainer = document.getElementById('rich-text-container');
-    textActionsContainer = document.getElementById('text-actions-container');
-    messageActionsContainer = document.getElementById('message-actions-container');
-    sendActionsContainer = document.getElementById('send-actions-container');
-    loadingOverlayContainer = document.getElementById('loading-overlay');
-    addLinkContainer = document.getElementById('add-link-container');
-    linkInput = document.getElementById('link-input');
-
-    //assign actions
-    toggleTextAction = document.getElementById('toggle-text-action');
-    voiceNoteAction = document.getElementById('voice-note-action');
-    cancelEditAction = document.getElementById('cancel-edit-action');
-    pollAttachmentAction = document.getElementById('poll-attachment-action');
-    redFlagAction = document.getElementById('red-flag-action');
-    applyLinkAction = document.getElementById('apply-link-button');
-    cancelLinkAction = document.getElementById('cancel-link-button');
-
-    //assign icons
-    redFlagIcon = document.getElementById('red-flag-icon');
-    finishEditIcon = document.getElementById('finish-edit-icon');
-    sendMessageIcon = document.getElementById('send-message-icon');
-
-    assignOnChange();
-
-};
-
-function getContent(asString) {
-    var content = document.getElementById('editor').innerHTML;
-    return asString ? content : {content: content};
-}
-
-function execCmdTouch($event, cmd, value) {
-    if ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        $event.stopImmediatePropagation();
-    }
-
-    try {
-        document.execCommand(cmd, false, value);
-    } catch (error) {
-    }
-}
-
-function toggleTextActionsTouch(event) {
-    renderViewVariables.showTextOptions = !renderViewVariables.showTextOptions;
-    event.preventDefault();
-}
-
-function keepCaretPosition() {
-    try {
-        let range = window.getSelection().getRangeAt(0) || new Range();
-        getSelection().addRange(range);
-    } catch (error) {
-
-    }
-}
-
-function toggleRedFlag($event) {
-    if ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        $event.stopImmediatePropagation();
-    }
-    renderViewVariables.redFlag = !renderViewVariables.redFlag;
-    callMobileHandler(HANDLERS.RED_FLAG_TOGGLED, renderViewVariables.redFlag);
-}
-
-function emitExpand($event) {
-    if ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        $event.stopImmediatePropagation();
-    }
-
-    if (editorConfigurations.eventsHandlers[HANDLERS.EXPAND_TOGGLED]) {
-        renderViewVariables.expanded = !renderViewVariables.expanded;
-        callMobileHandler(HANDLERS.EXPAND_TOGGLED, renderViewVariables.expanded);
-        if (!renderViewVariables.expanded) {
-            editorScrollHeight = editor.scrollHeight;
-            callMobileHandler(HANDLERS.HEIGHT_CHANGED, editorScrollHeight);
-        }
-    }
-}
-
-function sendClicked($event) {
-    if ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        $event.stopImmediatePropagation();
-    }
-    if (!renderViewVariables.sendButtonDisabled) {
-        var wrapHtmlString = '<div>' + getContent(true) + '</div>';
-        var content = getChObjectMessage(wrapHtmlString, {}, true);
-        callMobileHandler(HANDLERS.SEND_CLICKED, content);
-    }
-}
-
-function voiceMessageClicked($event) {
-    if ($event) {
-        $event.stopPropagation();
-        $event.stopImmediatePropagation();
-    }
-    callMobileHandler(HANDLERS.ADD_VOICE_MESSAGE_CLICKED);
-}
-
-function attachFileClicked($event) {
-    if ($event) {
-        $event.stopPropagation();
-        $event.stopImmediatePropagation();
-    }
-    callMobileHandler(HANDLERS.ADD_IMAGE_CLICKED);
-}
-
-function onEditorFocused($event) {
-    if ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        $event.stopImmediatePropagation();
-    }
-    callMobileHandler(HANDLERS.TEXT_FOCUSED);
-}
-
-function onCancelEditClick($event) {
-    if ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        $event.stopImmediatePropagation();
-    }
-    RichEditor.setContentHtml('', false);
-    callMobileHandler(HANDLERS.CANCEL_EDIT_CLICKED);
-}
-
-
-function callMobileHandler(handlerName, content) {
-    if (editorConfigurations.eventsHandlers[handlerName]) {
-        try {
-            if (typeof content === 'undefined') {
-                window[editorConfigurations.androidBridgeName][editorConfigurations.eventsHandlers[handlerName]]();
-            } else {
-                if (typeof content === 'object') {
-                    content = JSON.stringify(content);
-                }
-                window[editorConfigurations.androidBridgeName][editorConfigurations.eventsHandlers[handlerName]](content);
-            }
-        } catch (e) {
-            try {
-                window.webkit.messageHandlers[editorConfigurations.eventsHandlers[handlerName]].postMessage(content);
-            } catch (e) {
-                alert(e);
-            }
-        }
-    }
-}
-
-function assignOnChange() {
-    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-    editorObserver = new MutationObserver(contentChanged);
-    observeEditor();
-}
-
-function observeEditor() {
-    editorObserver && editorObserver.observe(editor, {childList: true, subtree: true, characterData: true});
-}
-
-function setEditorInnerHtml(htmlString) {
-    editorObserver && editorObserver.disconnect(editor);
-    editor.innerHTML = htmlString;
-    checkHeightToTrigger();
-    observeEditor();
-}
-
-function contentChanged() {
-    var wrapHtmlString = '<div>' + getContent(true) + '</div>';
-    var content = getChObjectMessage(wrapHtmlString, {}, true);
-    callMobileHandler(HANDLERS.TEXT_CHANGED, content.content.text);
-    checkHeightToTrigger();
-}
-
-function checkHeightToTrigger() {
-    if (editor.scrollHeight !== editorScrollHeight) {
-        editorScrollHeight = editor.scrollHeight;
-        callMobileHandler(HANDLERS.HEIGHT_CHANGED, editorScrollHeight);
-    }
-}
-
-function getJsonElements(jsonObject) {
-    var jsonObjectElements = [];
-    if (Array.isArray(jsonObject)) {
-        jsonObjectElements = jsonObject;
-    } else if (jsonObject && Array.isArray(jsonObject.elements)) {
-        jsonObjectElements = jsonObject.elements;
-    }
-    return jsonObjectElements;
-}
-
-function applyLinkToSelection($event) {
-    if ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        $event.stopImmediatePropagation();
-    }
-    var linkValue = linkInput.value;
-    if (linkValue && hasHttp(linkValue)) {
-        getSelection().removeAllRanges();
-        getSelection().addRange(selectionRange);
-
-        execCmdTouch(null, 'createLink', linkValue);
-        linkInput.value = '';
-        renderViewVariables.showAddLink = false;
-    } else {
-        renderViewVariables.linkError = true;
-    }
-}
-
-function cancelAddLink($event) {
-    if ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        $event.stopImmediatePropagation();
-    }
-    linkInput.value = '';
-    renderViewVariables.showAddLink = false;
-}
-
-function showAddLink($event) {
-    if ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        $event.stopImmediatePropagation();
-    }
-    var selection = window.getSelection();
-    selectionRange = selection.getRangeAt(0);
-    renderViewVariables.showAddLink = true;
-    linkInput.value = '';
-    linkInput.focus();
-}
-
-function stopPropagation($event) {
-    if ($event) {
-        $event.stopPropagation();
-        $event.stopImmediatePropagation();
-    }
-}
-
-function hasHttp(link) {
-    return /^[\s]*http(s)?\:/.test(link);
-};
-
-function onLinkChange($event) {
-    if ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        $event.stopImmediatePropagation();
-    }
-    if (linkInput.value) {
-        renderViewVariables.showApplyLink = true;
-    } else {
-        renderViewVariables.showApplyLink = false;
-    }
-
-    if (renderViewVariables.linkError) {
-        renderViewVariables.linkError = false;
-    }
-}
-
-function moveCursorAtTheEnd() {
-    var selection = document.getSelection();
-    var range = document.createRange();
-
-    if (editor.lastChild && editor.lastChild.nodeType == 3) {
-        range.setStart(editor.lastChild, editor.lastChild.length);
-    } else {
-        range.setStart(editor, editor.childNodes.length);
-    }
-    selection.removeAllRanges();
-    selection.addRange(range);
-
-}
-
-function stopEvent($event) {
-    if ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        $event.stopImmediatePropagation();
-    }
-}
-</script>
-                
+<script data-inline="true" src="ch-message-transform-utils.js"></script>
+<script data-inline="true" src="main.js"></script>
 
 </html>
