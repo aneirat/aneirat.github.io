@@ -1242,14 +1242,11 @@ function execCmdTouch($event, cmd, value) {
         $event.stopImmediatePropagation();
     }
 
-    // var selection = window.getSelection();
-    // var rangeExec = selection.getRangeAt(0);
-    // getSelection().removeAllRanges();
-    // getSelection().addRange(rangeExec);
-    keepCaretPosition();
-    document.execCommand(cmd, false, value);
-    // console.log(rangeExec)
-
+    try {
+        keepCaretPosition();
+        document.execCommand(cmd, false, value);
+    } catch (error) {
+    }
 }
 
 function toggleTextActionsTouch($event) {
@@ -1264,9 +1261,14 @@ function toggleTextActionsTouch($event) {
 
 function keepCaretPosition() {
     try {
-        let range = window.getSelection().getRangeAt(0);
-        getSelection().removeAllRanges();
-        getSelection().addRange(range);
+        if (document.body.createTextRange) {
+            var range = document.body.createTextRange();
+            range.select();
+        } else if (window.getSelection) {
+            let range = window.getSelection().getRangeAt(0);
+            getSelection().removeAllRanges();
+            getSelection().addRange(range);
+        }
     } catch (error) {
 
     }
