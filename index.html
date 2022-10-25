@@ -1234,20 +1234,53 @@ function getContent(asString) {
     var content = document.getElementById('editor').innerHTML;
     return asString ? content : {content: content};
 }
+//
+// function execCmdTouch($event, cmd, value) {
+//     if ($event) {
+//         $event.preventDefault();
+//         $event.stopPropagation();
+//         $event.stopImmediatePropagation();
+//     }
+//
+//     try {
+//         keepCaretPosition();
+//         document.execCommand(cmd, false, value);
+//     } catch (error) {
+//     }
+// }
 
 function execCmdTouch($event, cmd, value) {
+    var _this = this;
+    if (value === void 0) { value = ''; }
+    var _a, _b;
+    // if (!this.isFocusInComponent()) {
+    //     return;
+    // }
     if ($event) {
         $event.preventDefault();
         $event.stopPropagation();
         $event.stopImmediatePropagation();
     }
-
-    try {
-        //keepCaretPosition();
-        document.execCommand(cmd, false, value);
-    } catch (error) {
+    var range = ((_a = window.getSelection()) === null || _a === void 0 ? void 0 : _a.getRangeAt(0)) || new Range();
+    var sel = window.getSelection();
+    // 3 for text node type, focusNode: end node, anchorNode: startNode
+    if (((_b = sel === null || sel === void 0 ? void 0 : sel.focusNode) === null || _b === void 0 ? void 0 : _b.nodeType) === 3 && (sel === null || sel === void 0 ? void 0 : sel.focusNode) === (sel === null || sel === void 0 ? void 0 : sel.anchorNode)) {
+        var rangeStartOffset = (range === null || range === void 0 ? void 0 : range.startOffset) || 0;
+        var rangeEndOffset = (range === null || range === void 0 ? void 0 : range.endOffset) || 0;
+        try {
+            range === null || range === void 0 ? void 0 : range.setStart(range === null || range === void 0 ? void 0 : range.commonAncestorContainer, rangeStartOffset);
+            range === null || range === void 0 ? void 0 : range.setEnd(range === null || range === void 0 ? void 0 : range.commonAncestorContainer, rangeEndOffset);
+            sel === null || sel === void 0 ? void 0 : sel.removeAllRanges();
+            sel === null || sel === void 0 ? void 0 : sel.addRange(range);
+            document.execCommand(cmd, false, value);
+        }
+        catch (e) {
+        }
     }
-}
+    else {
+        document.execCommand(cmd, false, value);
+    }
+};
 
 function toggleTextActionsTouch($event) {
     if ($event) {
