@@ -367,7 +367,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" id="apply-bold-action" onclick="execCmdTouch(event, 'bold')">
+                <span class="btn" id="apply-bold-action">
                     <svg height="15px" version="1.1" viewBox="0 0 12 15" width="12px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Bold</title>
@@ -1207,7 +1207,8 @@ window.onload = function () {
     pollAttachmentAction.addEventListener('click', attachFileClicked);
     showTextStyleAction.addEventListener('click', toggleTextActionsTouch);
     closeTextStyleAction.addEventListener('click', toggleTextActionsTouch);
-    // applyBoldAction.addEventListener('click', function(event){execCmdTouch(event, 'bold');});
+    applyBoldAction.addEventListener('click', function(event){execCmdTouch(event, 'bold');});
+    applyBoldAction.addEventListener('mousedown', stopEvent);
     applyItalicAction.addEventListener('click', function(event){execCmdTouch(event, 'italic');});
     applyStrikeThroughAction.addEventListener('click', function(event){execCmdTouch(event, 'strikeThrough');});
     applyUnderlineAction.addEventListener('click', function(event){execCmdTouch(event, 'Underline');});
@@ -1525,6 +1526,7 @@ function moveCursorAtTheEnd() {
 }
 
 function stopEvent($event) {
+    console.log($event);
     if ($event) {
         $event.preventDefault();
         $event.stopPropagation();
