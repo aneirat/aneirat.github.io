@@ -283,7 +283,7 @@
         </div>
     </div>
     <div class="rich-text-component" id="rich-text-container">
-        <div class="expand-action" ontouchend="emitExpand(event)">
+        <div class="expand-action" id="expand-action">
             <svg height="18px"
                  id="expand-icon" version="1.1" viewBox="0 0 18 18" width="18px" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -314,10 +314,9 @@
                  placeholder=""
             ></div>
         </div>
-        <div class="actions-container" ontouchend="stopEvent()">
+        <div class="actions-container" id="actions-container">
             <div class="message-actions" id="message-actions-container">
-                <span class="circle-container bg-light-blue" id="poll-attachment-action"
-                      ontouchend="attachFileClicked(event)">
+                <span class="circle-container bg-light-blue" id="poll-attachment-action">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>plus</title>
@@ -336,7 +335,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="toggleTextActionsTouch(event)">
+                <span class="btn" id="show-text-style-action">
                     <?xml version="1.0" encoding="UTF-8"?>
                     <svg height="14px" version="1.1" viewBox="0 0 25 14" width="25px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -355,8 +354,7 @@
                 </span>
             </div>
             <div class="text-actions" id="text-actions-container">
-                <span class="circle-container bg-blue"
-                      ontouchend="toggleTextActionsTouch(event)">
+                <span class="circle-container bg-blue" id="close-text-style-action">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Times</title>
@@ -369,7 +367,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="execCmdTouch(event, 'bold')">
+                <span class="btn" id="apply-bold-action">
                     <svg height="15px" version="1.1" viewBox="0 0 12 15" width="12px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Bold</title>
@@ -380,7 +378,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="execCmdTouch(event, 'italic')">
+                <span class="btn" id="apply-italic-action">
                     <svg height="15px" version="1.1" viewBox="0 0 13 15" width="13px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Italic</title>
@@ -390,8 +388,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn"
-                      ontouchend="execCmdTouch(event, 'strikeThrough')">
+                <span class="btn" id="apply-strike-through-action">
                     <svg height="15px" version="1.1" viewBox="0 0 13 15" width="13px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Strikethrough</title>
@@ -402,7 +399,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="execCmdTouch(event, 'Underline')">
+                <span class="btn" id="apply-underline-action">
                     <svg height="15px" version="1.1" viewBox="0 0 12 15" width="12px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Underline</title>
@@ -417,7 +414,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="showAddLink(event)">
+                <span class="btn" id="add-link-action">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Link</title>
@@ -433,8 +430,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn"
-                      ontouchend="execCmdTouch(event, 'insertUnorderedList')">
+                <span class="btn" id="apply-unordered-list-action">
                     <svg height="17px" version="1.1" viewBox="0 0 22 17" width="22px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Bullet list</title>
@@ -459,8 +455,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn"
-                      ontouchend="execCmdTouch(event, 'insertOrderedList')">
+                <span class="btn" id="apply-ordered-list-action">
                     <svg height="17px" version="1.1" viewBox="0 0 23 17" width="23px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Numbered list</title>
@@ -491,7 +486,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="execCmdTouch(event, 'indent')">
+                <span class="btn" id="apply-indent-action">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Decrease indent</title>
@@ -513,7 +508,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" ontouchend="execCmdTouch(event, 'outdent')">
+                <span class="btn" id="apply-outdent-action">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Increase indent</title>
@@ -539,8 +534,7 @@
 
             </div>
             <div class="send-actions" id="send-actions-container">
-                <span class="btn circle-container bg-green" id="send-message-icon"
-                      ontouchend="sendClicked(event)">
+                <span class="btn circle-container bg-green" id="send-message-icon">
                     <svg height="18px" version="1.1" viewBox="0 0 19 18" width="19px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Send Message</title>
@@ -563,7 +557,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn no-display" id="finish-edit-icon" ontouchend="sendClicked(event)">
+                <span class="btn no-display" id="finish-edit-icon">
                     <title>send message</title>
                    <svg viewBox="0 0 512 512"
                         xmlns="http://www.w3.org/2000/svg">
@@ -571,8 +565,7 @@
                            d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
                    </svg>
                 </span>
-                <span class="btn no-display" id="cancel-edit-action"
-                      ontouchend="onCancelEditClick(event)">
+                <span class="btn no-display" id="cancel-edit-action">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Times</title>
@@ -585,8 +578,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn no-display" id="voice-note-action"
-                      ontouchend="voiceMessageClicked(event)">
+                <span class="btn no-display" id="voice-note-action">
                     <svg height="19px" version="1.1" viewBox="0 0 14 19" width="14px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Mic</title>
@@ -602,7 +594,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn no-display" id="red-flag-action" ontouchend="toggleRedFlag(event)">
+                <span class="btn no-display" id="red-flag-action">
                     <svg height="20px" version="1.1" viewBox="0 0 20 20" width="20px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>flag</title>
@@ -617,15 +609,14 @@
                 </span>
             </div>
         </div>
-        <div class="no-display" id="add-link-container" ontouchend="cancelAddLink(event)">
-            <div class="overlay-actions bg-white border-top" ontouchend="stopPropagation(event)">
+        <div class="no-display" id="add-link-container">
+            <div class="overlay-actions bg-white border-top" id="add-link-element">
                 <input id="link-input"
                        onkeyup="(event.keyCode === 13 && applyLinkToSelection(event)) || (event.keyCode !== 13 && onLinkChange(event))"
                        placeholder="https://"
                        type="text"/>
 
-                <span class="btn circle-container bg-blue" id="cancel-link-button"
-                      ontouchend="cancelAddLink(event)">
+                <span class="btn circle-container bg-blue" id="cancel-link-button">
                     <svg class="m-small" height="15px" version="1.1" viewBox="0 0 15 15" width="15px"
                          xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -639,8 +630,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn circle-container bg-blue no-display" id="apply-link-button"
-                      ontouchend="applyLinkToSelection(event)">
+                <span class="btn circle-container bg-blue no-display" id="apply-link-button">
                         <svg class="m-small" viewBox="0 0 512 512"
                              xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -893,12 +883,14 @@ var editor, editorConfigurations = {
 
 //containers HTML Elements
 var richTextContainer, textActionsContainer, messageActionsContainer, sendActionsContainer, loadingOverlayContainer,
-    addLinkContainer,
+    addLinkContainer, actionsContainer, addLinkElement,
     linkInput;
 
 //actions HTML Elements
 var toggleTextAction, voiceNoteAction, cancelEditAction, pollAttachmentAction, redFlagAction, applyLinkAction,
-    cancelLinkAction;
+    cancelLinkAction, expandAction, showTextStyleAction, closeTextStyleAction, applyBoldAction, applyItalicAction,
+    applyStrikeThroughAction, applyUnderlineAction, addLinkAction, applyUnorderedListAction, applyOrderedListAction,
+    applyIndentAction, applyOutdentAction;
 
 //icons Elements
 var redFlagIcon, finishEditIcon, sendMessageIcon;
@@ -1180,6 +1172,8 @@ window.onload = function () {
     loadingOverlayContainer = document.getElementById('loading-overlay');
     addLinkContainer = document.getElementById('add-link-container');
     linkInput = document.getElementById('link-input');
+    actionsContainer = document.getElementById('actions-container');
+    addLinkElement = document.getElementById('add-link-element');
 
     //assign actions
     toggleTextAction = document.getElementById('toggle-text-action');
@@ -1189,11 +1183,48 @@ window.onload = function () {
     redFlagAction = document.getElementById('red-flag-action');
     applyLinkAction = document.getElementById('apply-link-button');
     cancelLinkAction = document.getElementById('cancel-link-button');
+    expandAction = document.getElementById('expand-action');
+    showTextStyleAction = document.getElementById('show-text-style-action');
+    closeTextStyleAction = document.getElementById('close-text-style-action');
+    applyBoldAction = document.getElementById('apply-bold-action');
+    applyItalicAction = document.getElementById('apply-italic-action');
+    applyStrikeThroughAction = document.getElementById('apply-strike-through-action');
+    applyUnderlineAction = document.getElementById('apply-underline-action');
+    addLinkAction = document.getElementById('add-link-action');
+    applyUnorderedListAction = document.getElementById('apply-unordered-list-action');
+    applyOrderedListAction = document.getElementById('apply-ordered-list-action');
+    applyIndentAction = document.getElementById('apply-indent-action');
+    applyOutdentAction = document.getElementById('apply-outdent-action');
 
     //assign icons
     redFlagIcon = document.getElementById('red-flag-icon');
     finishEditIcon = document.getElementById('finish-edit-icon');
     sendMessageIcon = document.getElementById('send-message-icon');
+
+    //assign events:
+    expandAction.addEventListener('click', emitExpand);
+    actionsContainer.addEventListener('click', stopEvent);
+    pollAttachmentAction.addEventListener('click', attachFileClicked);
+    showTextStyleAction.addEventListener('click', toggleTextActionsTouch);
+    closeTextStyleAction.addEventListener('click', toggleTextActionsTouch);
+    applyBoldAction.addEventListener('click', function(event){execCmdTouch(event, 'bold');});
+    applyItalicAction.addEventListener('click', function(event){execCmdTouch(event, 'italic');});
+    applyStrikeThroughAction.addEventListener('click', function(event){execCmdTouch(event, 'strikeThrough');});
+    applyUnderlineAction.addEventListener('click', function(event){execCmdTouch(event, 'Underline');});
+    addLinkAction.addEventListener('click', showAddLink);
+    applyUnorderedListAction.addEventListener('click', function(event){execCmdTouch(event, 'insertUnorderedList');});
+    applyOrderedListAction.addEventListener('click', function(event){execCmdTouch(event, 'insertOrderedList');});
+    applyIndentAction.addEventListener('click', function(event){execCmdTouch(event, 'indent');});
+    applyOutdentAction.addEventListener('click', function(event){execCmdTouch(event, 'outdent');});
+    sendMessageIcon.addEventListener('click', sendClicked);
+    finishEditIcon.addEventListener('click', sendClicked);
+    cancelEditAction.addEventListener('click', onCancelEditClick);
+    voiceNoteAction.addEventListener('click', voiceMessageClicked);
+    redFlagAction.addEventListener('click', toggleRedFlag);
+    addLinkContainer.addEventListener('click', cancelAddLink);
+    addLinkElement.addEventListener('click', stopPropagation);
+    cancelLinkAction.addEventListener('click', cancelAddLink);
+    applyLinkAction.addEventListener('click', applyLinkToSelection);
 
     assignOnChange();
 
@@ -1213,13 +1244,19 @@ function execCmdTouch($event, cmd, value) {
 
     try {
         document.execCommand(cmd, false, value);
+        keepCaretPosition();
     } catch (error) {
     }
 }
 
-function toggleTextActionsTouch(event) {
+function toggleTextActionsTouch($event) {
+    if ($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+        $event.stopImmediatePropagation();
+    }
     renderViewVariables.showTextOptions = !renderViewVariables.showTextOptions;
-    event.preventDefault();
+    keepCaretPosition();
 }
 
 function keepCaretPosition() {
