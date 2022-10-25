@@ -1245,7 +1245,7 @@ function execCmdTouch($event, cmd, value) {
     var selection = window.getSelection();
     var rangeExec = selection.getRangeAt(0);
     document.execCommand(cmd, false, value);
-    getSelection().removeAllRanges();
+    // getSelection().removeAllRanges();
     getSelection().addRange(rangeExec);
 
 }
