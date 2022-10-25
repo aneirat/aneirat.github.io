@@ -1261,7 +1261,8 @@ function toggleTextActionsTouch($event) {
 
 function keepCaretPosition() {
     try {
-        let range = window.getSelection().getRangeAt(0) || new Range();
+        let range = window.getSelection().getRangeAt(0);
+        getSelection().removeAllRanges();
         getSelection().addRange(range);
     } catch (error) {
 
