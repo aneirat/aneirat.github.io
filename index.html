@@ -283,7 +283,7 @@
         </div>
     </div>
     <div class="rich-text-component" id="rich-text-container">
-        <div class="expand-action" onclick="emitExpand(event)">
+        <div class="expand-action" ontouchend="emitExpand(event)">
             <svg height="18px"
                  id="expand-icon" version="1.1" viewBox="0 0 18 18" width="18px" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -314,10 +314,10 @@
                  placeholder=""
             ></div>
         </div>
-        <div class="actions-container" onclick="stopEvent()">
+        <div class="actions-container" ontouchend="stopEvent()">
             <div class="message-actions" id="message-actions-container">
                 <span class="circle-container bg-light-blue" id="poll-attachment-action"
-                      onclick="attachFileClicked(event)">
+                      ontouchend="attachFileClicked(event)">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>plus</title>
@@ -336,7 +336,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="toggleTextActionsTouch(event)">
+                <span class="btn" ontouchend="toggleTextActionsTouch(event)">
                     <?xml version="1.0" encoding="UTF-8"?>
                     <svg height="14px" version="1.1" viewBox="0 0 25 14" width="25px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -356,7 +356,7 @@
             </div>
             <div class="text-actions" id="text-actions-container">
                 <span class="circle-container bg-blue"
-                      onclick="toggleTextActionsTouch(event)">
+                      ontouchend="toggleTextActionsTouch(event)">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Times</title>
@@ -369,7 +369,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="execCmdTouch(event, 'bold')">
+                <span class="btn" ontouchend="execCmdTouch(event, 'bold')">
                     <svg height="15px" version="1.1" viewBox="0 0 12 15" width="12px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Bold</title>
@@ -380,7 +380,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="execCmdTouch(event, 'italic')">
+                <span class="btn" ontouchend="execCmdTouch(event, 'italic')">
                     <svg height="15px" version="1.1" viewBox="0 0 13 15" width="13px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Italic</title>
@@ -391,7 +391,7 @@
                     </svg>
                 </span>
                 <span class="btn"
-                      onclick="execCmdTouch(event, 'strikeThrough')">
+                      ontouchend="execCmdTouch(event, 'strikeThrough')">
                     <svg height="15px" version="1.1" viewBox="0 0 13 15" width="13px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Strikethrough</title>
@@ -402,7 +402,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="execCmdTouch(event, 'Underline')">
+                <span class="btn" ontouchend="execCmdTouch(event, 'Underline')">
                     <svg height="15px" version="1.1" viewBox="0 0 12 15" width="12px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Underline</title>
@@ -417,7 +417,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="showAddLink(event)">
+                <span class="btn" ontouchend="showAddLink(event)">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Link</title>
@@ -434,7 +434,7 @@
                     </svg>
                 </span>
                 <span class="btn"
-                      onclick="execCmdTouch(event, 'insertUnorderedList')">
+                      ontouchend="execCmdTouch(event, 'insertUnorderedList')">
                     <svg height="17px" version="1.1" viewBox="0 0 22 17" width="22px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Bullet list</title>
@@ -460,7 +460,7 @@
                     </svg>
                 </span>
                 <span class="btn"
-                      onclick="execCmdTouch(event, 'insertOrderedList')">
+                      ontouchend="execCmdTouch(event, 'insertOrderedList')">
                     <svg height="17px" version="1.1" viewBox="0 0 23 17" width="23px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Numbered list</title>
@@ -491,7 +491,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="execCmdTouch(event, 'indent')">
+                <span class="btn" ontouchend="execCmdTouch(event, 'indent')">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Decrease indent</title>
@@ -513,7 +513,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" onclick="execCmdTouch(event, 'outdent')">
+                <span class="btn" ontouchend="execCmdTouch(event, 'outdent')">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Increase indent</title>
@@ -540,7 +540,7 @@
             </div>
             <div class="send-actions" id="send-actions-container">
                 <span class="btn circle-container bg-green" id="send-message-icon"
-                      onclick="sendClicked(event)">
+                      ontouchend="sendClicked(event)">
                     <svg height="18px" version="1.1" viewBox="0 0 19 18" width="19px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Send Message</title>
@@ -563,7 +563,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn no-display" id="finish-edit-icon" onclick="sendClicked(event)">
+                <span class="btn no-display" id="finish-edit-icon" ontouchend="sendClicked(event)">
                     <title>send message</title>
                    <svg viewBox="0 0 512 512"
                         xmlns="http://www.w3.org/2000/svg">
@@ -572,7 +572,7 @@
                    </svg>
                 </span>
                 <span class="btn no-display" id="cancel-edit-action"
-                      onclick="onCancelEditClick(event)">
+                      ontouchend="onCancelEditClick(event)">
                     <svg height="15px" version="1.1" viewBox="0 0 15 15" width="15px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Times</title>
@@ -586,7 +586,7 @@
                     </svg>
                 </span>
                 <span class="btn no-display" id="voice-note-action"
-                      onclick="voiceMessageClicked(event)">
+                      ontouchend="voiceMessageClicked(event)">
                     <svg height="19px" version="1.1" viewBox="0 0 14 19" width="14px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Mic</title>
@@ -602,7 +602,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn no-display" id="red-flag-action" onclick="toggleRedFlag(event)">
+                <span class="btn no-display" id="red-flag-action" ontouchend="toggleRedFlag(event)">
                     <svg height="20px" version="1.1" viewBox="0 0 20 20" width="20px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>flag</title>
@@ -617,15 +617,15 @@
                 </span>
             </div>
         </div>
-        <div class="no-display" id="add-link-container" onclick="cancelAddLink(event)">
-            <div class="overlay-actions bg-white border-top" onclick="stopPropagation(event)">
+        <div class="no-display" id="add-link-container" ontouchend="cancelAddLink(event)">
+            <div class="overlay-actions bg-white border-top" ontouchend="stopPropagation(event)">
                 <input id="link-input"
                        onkeyup="(event.keyCode === 13 && applyLinkToSelection(event)) || (event.keyCode !== 13 && onLinkChange(event))"
                        placeholder="https://"
                        type="text"/>
 
                 <span class="btn circle-container bg-blue" id="cancel-link-button"
-                      onclick="cancelAddLink(event)">
+                      ontouchend="cancelAddLink(event)">
                     <svg class="m-small" height="15px" version="1.1" viewBox="0 0 15 15" width="15px"
                          xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -640,7 +640,7 @@
                     </svg>
                 </span>
                 <span class="btn circle-container bg-blue no-display" id="apply-link-button"
-                      onclick="applyLinkToSelection(event)">
+                      ontouchend="applyLinkToSelection(event)">
                         <svg class="m-small" viewBox="0 0 512 512"
                              xmlns="http://www.w3.org/2000/svg">
                             <path
