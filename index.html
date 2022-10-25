@@ -1242,10 +1242,11 @@ function execCmdTouch($event, cmd, value) {
         $event.stopImmediatePropagation();
     }
 
-    var selection = window.getSelection();
-    var rangeExec = selection.getRangeAt(0);
-    getSelection().removeAllRanges();
-    getSelection().addRange(rangeExec);
+    // var selection = window.getSelection();
+    // var rangeExec = selection.getRangeAt(0);
+    // getSelection().removeAllRanges();
+    // getSelection().addRange(rangeExec);
+    keepCaretPosition();
     document.execCommand(cmd, false, value);
     console.log(rangeExec)
 
@@ -1257,8 +1258,8 @@ function toggleTextActionsTouch($event) {
         $event.stopPropagation();
         $event.stopImmediatePropagation();
     }
-    renderViewVariables.showTextOptions = !renderViewVariables.showTextOptions;
     keepCaretPosition();
+    renderViewVariables.showTextOptions = !renderViewVariables.showTextOptions;
 }
 
 function keepCaretPosition() {
