@@ -1207,15 +1207,15 @@ window.onload = function () {
     pollAttachmentAction.addEventListener('click', attachFileClicked);
     showTextStyleAction.addEventListener('click', toggleTextActionsTouch);
     closeTextStyleAction.addEventListener('click', toggleTextActionsTouch);
-    applyBoldAction.addEventListener('click', function(event){execCmdTouch(event, 'bold');});
-    applyItalicAction.addEventListener('click', function(event){execCmdTouch(event, 'italic');});
-    applyStrikeThroughAction.addEventListener('click', function(event){execCmdTouch(event, 'strikeThrough');});
-    applyUnderlineAction.addEventListener('click', function(event){execCmdTouch(event, 'Underline');});
-    addLinkAction.addEventListener('click', showAddLink);
-    applyUnorderedListAction.addEventListener('click', function(event){execCmdTouch(event, 'insertUnorderedList');});
-    applyOrderedListAction.addEventListener('click', function(event){execCmdTouch(event, 'insertOrderedList');});
-    applyIndentAction.addEventListener('click', function(event){execCmdTouch(event, 'indent');});
-    applyOutdentAction.addEventListener('click', function(event){execCmdTouch(event, 'outdent');});
+    applyBoldAction.addEventListener('click touchend', function(event){execCmdTouch(event, 'bold');});
+    applyItalicAction.addEventListener('click touchend', function(event){execCmdTouch(event, 'italic');});
+    applyStrikeThroughAction.addEventListener('click touchend', function(event){execCmdTouch(event, 'strikeThrough');});
+    applyUnderlineAction.addEventListener('click touchend', function(event){execCmdTouch(event, 'Underline');});
+    addLinkAction.addEventListener('click touchend', showAddLink);
+    applyUnorderedListAction.addEventListener('click touchend', function(event){execCmdTouch(event, 'insertUnorderedList');});
+    applyOrderedListAction.addEventListener('click touchend', function(event){execCmdTouch(event, 'insertOrderedList');});
+    applyIndentAction.addEventListener('click touchend', function(event){execCmdTouch(event, 'indent');});
+    applyOutdentAction.addEventListener('click touchend', function(event){execCmdTouch(event, 'outdent');});
     sendMessageIcon.addEventListener('click', sendClicked);
     finishEditIcon.addEventListener('click', sendClicked);
     cancelEditAction.addEventListener('click', onCancelEditClick);
@@ -1265,9 +1265,7 @@ function keepCaretPosition() {
         getSelection().removeAllRanges();
         getSelection().addRange(range);
     } catch (error) {
-        let range = new Range();
-        getSelection().removeAllRanges();
-        getSelection().addRange(range);
+        console.log(error);
     }
 }
 
