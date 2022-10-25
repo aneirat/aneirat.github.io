@@ -1242,11 +1242,12 @@ function execCmdTouch($event, cmd, value) {
         $event.stopImmediatePropagation();
     }
 
-    try {
-        document.execCommand(cmd, false, value);
-        keepCaretPosition();
-    } catch (error) {
-    }
+    var selection = window.getSelection();
+    var rangeExec = selection.getRangeAt(0);
+    document.execCommand(cmd, false, value);
+    getSelection().removeAllRanges();
+    getSelection().addRange(rangeExec);
+
 }
 
 function toggleTextActionsTouch($event) {
