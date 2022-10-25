@@ -1261,16 +1261,13 @@ function toggleTextActionsTouch($event) {
 
 function keepCaretPosition() {
     try {
-        if (document.body.createTextRange) {
-            // var range = document.body.createTextRange();
-            // range.select();
-        } else if (window.getSelection) {
-            let range = window.getSelection().getRangeAt(0);
-            getSelection().removeAllRanges();
-            getSelection().addRange(range);
-        }
+        let range = window.getSelection().getRangeAt(0);
+        getSelection().removeAllRanges();
+        getSelection().addRange(range);
     } catch (error) {
-
+        let range = new Range();
+        getSelection().removeAllRanges();
+        getSelection().addRange(range);
     }
 }
 
