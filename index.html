@@ -1203,29 +1203,44 @@ window.onload = function () {
 
     //assign events:
     expandAction.addEventListener('click', emitExpand);
+    expandAction.addEventListener('mousedown', stopEvent);
     actionsContainer.addEventListener('click', stopEvent);
     pollAttachmentAction.addEventListener('click', attachFileClicked);
     showTextStyleAction.addEventListener('click', toggleTextActionsTouch);
+    showTextStyleAction.addEventListener('mousedown', stopEvent);
     closeTextStyleAction.addEventListener('click', toggleTextActionsTouch);
+    closeTextStyleAction.addEventListener('mousedown', stopEvent);
     applyBoldAction.addEventListener('click', function(event){execCmdTouch(event, 'bold');});
     applyBoldAction.addEventListener('mousedown', stopEvent);
     applyItalicAction.addEventListener('click', function(event){execCmdTouch(event, 'italic');});
+    applyItalicAction.addEventListener('mousedown', stopEvent);
     applyStrikeThroughAction.addEventListener('click', function(event){execCmdTouch(event, 'strikeThrough');});
+    applyStrikeThroughAction.addEventListener('mousedown', stopEvent);
     applyUnderlineAction.addEventListener('click', function(event){execCmdTouch(event, 'Underline');});
+    applyUnderlineAction.addEventListener('mousedown', stopEvent);
     addLinkAction.addEventListener('click', showAddLink);
+    addLinkAction.addEventListener('mousedown', stopEvent);
     applyUnorderedListAction.addEventListener('click', function(event){execCmdTouch(event, 'insertUnorderedList');});
+    applyUnorderedListAction.addEventListener('mousedown', stopEvent);
     applyOrderedListAction.addEventListener('click', function(event){execCmdTouch(event, 'insertOrderedList');});
+    applyOrderedListAction.addEventListener('mousedown', stopEvent);
     applyIndentAction.addEventListener('click', function(event){execCmdTouch(event, 'indent');});
+    applyIndentAction.addEventListener('mousedown', stopEvent);
     applyOutdentAction.addEventListener('click', function(event){execCmdTouch(event, 'outdent');});
+    applyOutdentAction.addEventListener('mousedown', stopEvent);
     sendMessageIcon.addEventListener('click', sendClicked);
+    sendMessageIcon.addEventListener('mousedown', stopEvent);
     finishEditIcon.addEventListener('click', sendClicked);
     cancelEditAction.addEventListener('click', onCancelEditClick);
     voiceNoteAction.addEventListener('click', voiceMessageClicked);
     redFlagAction.addEventListener('click', toggleRedFlag);
     addLinkContainer.addEventListener('click', cancelAddLink);
+    addLinkContainer.addEventListener('mousedown', stopEvent);
     addLinkElement.addEventListener('click', stopPropagation);
     cancelLinkAction.addEventListener('click', cancelAddLink);
+    cancelLinkAction.addEventListener('mousedown', stopEvent);
     applyLinkAction.addEventListener('click', applyLinkToSelection);
+    applyLinkAction.addEventListener('mousedown', stopEvent);
 
     assignOnChange();
 
@@ -1235,53 +1250,53 @@ function getContent(asString) {
     var content = document.getElementById('editor').innerHTML;
     return asString ? content : {content: content};
 }
-//
-// function execCmdTouch($event, cmd, value) {
-//     if ($event) {
-//         $event.preventDefault();
-//         $event.stopPropagation();
-//         $event.stopImmediatePropagation();
-//     }
-//
-//     try {
-//         keepCaretPosition();
-//         document.execCommand(cmd, false, value);
-//     } catch (error) {
-//     }
-// }
 
 function execCmdTouch($event, cmd, value) {
-    var _this = this;
-    if (value === void 0) { value = ''; }
-    var _a, _b;
-    // if (!this.isFocusInComponent()) {
-    //     return;
-    // }
     if ($event) {
         $event.preventDefault();
         $event.stopPropagation();
         $event.stopImmediatePropagation();
     }
-    var range = ((_a = window.getSelection()) === null || _a === void 0 ? void 0 : _a.getRangeAt(0)) || new Range();
-    var sel = window.getSelection();
-    // 3 for text node type, focusNode: end node, anchorNode: startNode
-    if (((_b = sel === null || sel === void 0 ? void 0 : sel.focusNode) === null || _b === void 0 ? void 0 : _b.nodeType) === 3 && (sel === null || sel === void 0 ? void 0 : sel.focusNode) === (sel === null || sel === void 0 ? void 0 : sel.anchorNode)) {
-        var rangeStartOffset = (range === null || range === void 0 ? void 0 : range.startOffset) || 0;
-        var rangeEndOffset = (range === null || range === void 0 ? void 0 : range.endOffset) || 0;
-        try {
-            range === null || range === void 0 ? void 0 : range.setStart(range === null || range === void 0 ? void 0 : range.commonAncestorContainer, rangeStartOffset);
-            range === null || range === void 0 ? void 0 : range.setEnd(range === null || range === void 0 ? void 0 : range.commonAncestorContainer, rangeEndOffset);
-            sel === null || sel === void 0 ? void 0 : sel.removeAllRanges();
-            sel === null || sel === void 0 ? void 0 : sel.addRange(range);
-            document.execCommand(cmd, false, value);
-        }
-        catch (e) {
-        }
-    }
-    else {
+
+    try {
+        // keepCaretPosition();
         document.execCommand(cmd, false, value);
+    } catch (error) {
     }
-};
+}
+//
+// function execCmdTouch($event, cmd, value) {
+//     var _this = this;
+//     if (value === void 0) { value = ''; }
+//     var _a, _b;
+//     // if (!this.isFocusInComponent()) {
+//     //     return;
+//     // }
+//     if ($event) {
+//         $event.preventDefault();
+//         $event.stopPropagation();
+//         $event.stopImmediatePropagation();
+//     }
+//     var range = ((_a = window.getSelection()) === null || _a === void 0 ? void 0 : _a.getRangeAt(0)) || new Range();
+//     var sel = window.getSelection();
+//     // 3 for text node type, focusNode: end node, anchorNode: startNode
+//     if (((_b = sel === null || sel === void 0 ? void 0 : sel.focusNode) === null || _b === void 0 ? void 0 : _b.nodeType) === 3 && (sel === null || sel === void 0 ? void 0 : sel.focusNode) === (sel === null || sel === void 0 ? void 0 : sel.anchorNode)) {
+//         var rangeStartOffset = (range === null || range === void 0 ? void 0 : range.startOffset) || 0;
+//         var rangeEndOffset = (range === null || range === void 0 ? void 0 : range.endOffset) || 0;
+//         try {
+//             range === null || range === void 0 ? void 0 : range.setStart(range === null || range === void 0 ? void 0 : range.commonAncestorContainer, rangeStartOffset);
+//             range === null || range === void 0 ? void 0 : range.setEnd(range === null || range === void 0 ? void 0 : range.commonAncestorContainer, rangeEndOffset);
+//             sel === null || sel === void 0 ? void 0 : sel.removeAllRanges();
+//             sel === null || sel === void 0 ? void 0 : sel.addRange(range);
+//             document.execCommand(cmd, false, value);
+//         }
+//         catch (e) {
+//         }
+//     }
+//     else {
+//         document.execCommand(cmd, false, value);
+//     }
+// };
 
 function toggleTextActionsTouch($event) {
     if ($event) {
@@ -1289,7 +1304,7 @@ function toggleTextActionsTouch($event) {
         $event.stopPropagation();
         $event.stopImmediatePropagation();
     }
-    keepCaretPosition();
+    // keepCaretPosition();
     renderViewVariables.showTextOptions = !renderViewVariables.showTextOptions;
 }
 
