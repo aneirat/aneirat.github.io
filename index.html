@@ -22,6 +22,11 @@
             height: 19px;
         }
 
+        blockquote {
+            margin: 0 0 0 40px;
+            border: none;
+            padding: 0px;
+        }
 
         .btn {
             -webkit-user-select: none;
@@ -556,11 +561,11 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn no-display" id="finish-edit-icon">
+                <span class="btn no-display" id="finish-edit-action">
                     <title>send message</title>
                    <svg viewBox="0 0 512 512"
                         xmlns="http://www.w3.org/2000/svg">
-                       <path
+                       <path id="finish-edit-icon" fill="#0088dd"
                            d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
                    </svg>
                 </span>
@@ -594,11 +599,24 @@
                     </svg>
                 </span>
                 <span class="btn no-display" id="red-flag-action">
-                    <svg height="20px" version="1.1" viewBox="0 0 20 20" width="20px" xmlns="http://www.w3.org/2000/svg"
+                    <svg height="20px" version="1.1" viewBox="0 0 20 20" width="20px" id="red-flag-icon"
+                         xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>flag</title>
                         <g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1">
-                            <g fill="#C4C4C4" fill-rule="nonzero" id="red-flag-icon">
+                            <g fill="#ca4545" fill-rule="nonzero">
+                                <path
+                                    d="M 19.6913 9.1664 C 18.4358 8.543 17.2744 7.7465 16.2411 6.8004 C 16.7719 4.7973 17.1657 2.7605 17.4198 0.704 C 17.4794 0.225 17.2121 0.0704 17.1291 0.0345 C 16.8953 -0.0544 16.631 0.0331 16.4966 0.2438 C 14.6724 2.4222 12.1737 2.1737 9.5282 1.9091 C 6.862 1.6429 4.1113 1.3729 2.0721 3.7093 C 1.7869 3.3541 1.317 3.2027 0.8775 3.3246 L 0.8316 3.3374 C 0.2269 3.5069 -0.1263 4.1329 0.0419 4.7369 L 4.1115 19.2715 C 4.2296 19.6922 4.6133 19.9834 5.051 19.9846 C 5.1403 19.9846 5.2291 19.9723 5.315 19.9483 L 5.6711 19.849 L 5.6714 19.849 C 5.921 19.7794 6.1326 19.6137 6.2597 19.3884 C 6.3868 19.1631 6.419 18.8966 6.3492 18.6476 L 5.0888 14.1455 C 6.9243 11.7898 9.4821 12.0393 12.1884 12.309 C 14.8915 12.5785 17.6838 12.8566 19.735 10.4085 L 19.736 10.4072 C 19.9375 10.1565 20.0205 9.8311 19.9635 9.5148 C 19.9335 9.3621 19.8325 9.2327 19.6913 9.1664 L 19.6913 9.1664 Z"
+                                    id="Shape"></path>
+                            </g>
+                        </g>
+                    </svg>
+                    <svg height="20px" version="1.1" viewBox="0 0 20 20" width="20px" id="grey-flag-icon"
+                         xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>flag</title>
+                        <g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1">
+                            <g fill="#C4C4C4" fill-rule="nonzero">
                                 <path
                                     d="M19.6913158,9.16638718 C18.435845,8.5429851 17.2744141,7.7465324 16.2411158,6.80040824 C16.7719036,4.79727703 17.1657105,2.76046652 17.4198158,0.704048522 C17.4794158,0.224984194 17.2121491,0.0703861435 17.1291491,0.0344895873 C16.895251,-0.0543768588 16.6309855,0.0330951508 16.4966491,0.243847352 C14.6724491,2.42222604 12.1737491,2.17367815 9.52821578,1.90906165 C6.86204912,1.6429148 4.11134912,1.37290882 2.07208245,3.70934547 C1.78690871,3.35407768 1.31697051,3.20271901 0.877515782,3.32459693 L0.831615782,3.33743852 C0.226907892,3.50694804 -0.126312861,4.13289323 0.0419157821,4.73687191 L4.11154912,19.2715173 C4.22961475,19.6922028 4.61328715,19.9834314 5.05101578,19.9846245 C5.14025972,19.9846245 5.22907195,19.9722601 5.31501578,19.9482622 L5.67111578,19.8489894 L5.67144912,19.8489894 C5.92097535,19.7794061 6.13257542,19.6137224 6.25968142,19.3884011 C6.38678742,19.1630799 6.41898292,18.8965864 6.34918245,18.6475692 L5.08878245,14.1454624 C6.92431578,11.7898299 9.48211578,12.0392761 12.1883824,12.3090492 C14.8915158,12.5785229 17.6838158,12.8566463 19.7350491,10.4084613 L19.7360158,10.4071638 C19.9374953,10.1565138 20.0204669,9.83112197 19.9635491,9.51483994 C19.9335493,9.36206304 19.8324592,9.23266989 19.6913158,9.16638718 L19.6913158,9.16638718 Z M5.67861578,19.0619266 C5.63855732,19.1337106 5.57130882,19.1864457 5.49194912,19.2083074 L5.13581578,19.3075469 C4.97084388,19.353336 4.79987038,19.2571881 4.75364912,19.0926333 L0.683815782,4.55785489 C0.614347952,4.3075496 0.760779592,4.0483093 1.01131578,3.97805398 L1.05688245,3.96537874 C1.0981025,3.95379496 1.14072624,3.94797919 1.18354912,3.94797919 C1.39497951,3.94831809 1.58049431,4.08868733 1.63791578,4.29177458 L1.67401578,4.42072273 L1.67401578,4.42142136 L3.75831578,11.8653824 L5.70724912,18.8263867 C5.72956628,18.9055688 5.71925765,18.9903683 5.67861578,19.0619266 L5.67861578,19.0619266 Z M19.2229158,9.98216054 C17.3983824,12.1598739 14.8993491,11.9108602 12.2548158,11.6468758 C9.62038245,11.3840558 6.90148245,11.1129187 4.86974912,13.3621257 L3.04874912,6.85882747 L2.36064912,4.4011942 C4.19624912,2.0459942 6.75384912,2.30132883 9.46214912,2.57120174 C12.0337491,2.82720174 14.6883824,3.09231727 16.7079158,1.00442851 C16.4590112,2.90076108 16.0880214,4.77913031 15.5972491,6.62787854 C15.5308136,6.86691684 15.6061567,7.12286796 15.7915824,7.2880558 C16.8511256,8.25617577 18.0371328,9.07665225 19.3172824,9.72712532 C19.3101554,9.81923116 19.2774803,9.90753885 19.2229158,9.98216054 Z"
                                     id="Shape"></path>
@@ -651,6 +669,7 @@
     'user': 'user',
     'rich_text_section': 'rich_text_section',
     'rich_text_list': 'rich_text_list',
+    'blockquote': 'blockquote'
 };
 
 const CH_LIST_TYPES = {
@@ -680,20 +699,20 @@ function createContentElements() {
     };
 }
 
-var messageText = '';
+var _messageText = '';
 
 function getChObjectMessage(htmlString, parentPayLoad, isRoot) {
-    messageText = '';
-    var components = htmlToObject(htmlString, parentPayLoad, isRoot);
+    _messageText = '';
+    var components = getMessageContent(htmlString, parentPayLoad, [], isRoot);
     return{
         content: {
-            text: messageText,
+            text: _messageText,
             components: [components]
         }
     };
 }
 
-function htmlToObject(htmlString, parentPayLoad, isRoot) {
+function getMessageContent(htmlString, parentPayLoad, userMap, isRoot) {
     var payload = createContentElements();
     var root = typeof htmlString === 'string' ? convertStringToHTML(htmlString) : htmlString;
     if (root.nodeType !== 3) {
@@ -705,6 +724,8 @@ function htmlToObject(htmlString, parentPayLoad, isRoot) {
             payload.type = ELEMENTS_TYPES.rich_text_list;
             payload.style = payload.style || createContentElementStyle();
             payload.style.list_type = CH_LIST_TYPES.ORDERED;
+        } else if (root.nodeName === 'BLOCKQUOTE') {
+            payload.type = ELEMENTS_TYPES.blockquote;
         } else {
             payload.type = ELEMENTS_TYPES.rich_text_section;
         }
@@ -734,7 +755,7 @@ function htmlToObject(htmlString, parentPayLoad, isRoot) {
             type: ELEMENTS_TYPES.text,
             text: '\n'
         });
-        messageText += '\n';
+        _messageText += '\n';
     }
     for (var i = 0; i < root.childNodes.length; i++) {
         //todo for user mention and dynamic fields
@@ -754,7 +775,7 @@ function htmlToObject(htmlString, parentPayLoad, isRoot) {
                     element.user_id = root.childNodes[i].textContent || '';
                 }
                 if (element.user_id) {
-                    element.user_name = this.userMap[element.user_id].first_name + ' ' + this.userMap[element.user_id].last_name;
+                    element.user_name = userMap[element.user_id].first_name + ' ' + userMap[element.user_id].last_name;
 
                 }
             }
@@ -778,7 +799,7 @@ function htmlToObject(htmlString, parentPayLoad, isRoot) {
                 element.style = element.style || createContentElementStyle();
                 element.style.under_line = true;
             }
-            messageText += (element.text || element.user_name);
+            _messageText += (element.text || element.user_name);
             payload['elements'].push(element);
         } else if (root.childNodes[i].nodeName === 'A') {
             var element = createContentElements();
@@ -786,48 +807,50 @@ function htmlToObject(htmlString, parentPayLoad, isRoot) {
             element.text = root.childNodes[i].textContent || '';
             element.url = root.childNodes[i]['href'] || '';
             payload['elements'].push(element);
-            messageText += element.text;
+            _messageText += element.text;
         } else if (root.childNodes[i].nodeName === 'BR') {
             payload['elements'].push({
                 type: ELEMENTS_TYPES.text,
                 text: '\n'
             });
-            messageText += '\n';
+            _messageText += '\n';
         } else {
-            payload['elements'].push(htmlToObject(root.childNodes[i], payload))
+            payload['elements'].push(getMessageContent(root.childNodes[i], payload, userMap))
         }
     }
     return payload;
 }
 
-function jsonToHtml(components, isList) {
+function getMessageContentAsHtml(components, isList) {
     var html = "";
     if (components) {
-        for (let i = 0; i < components.length; i++) {
-            let htmlBlock = "";
+        for (var i = 0; i < components.length; i++) {
+            var htmlBlock = "";
             if (components[i].type === ELEMENTS_TYPES.text) {
                 htmlBlock += components[i].text;
                 var urlRegex = /(https?:\/\/[^\s]+)/g;
-                htmlBlock = htmlBlock.replace(urlRegex, url => '<a target="_blank" href="' + url + '">' + url + '</a>');
+                htmlBlock = htmlBlock.replace(urlRegex, function(url){ return '<a target="_blank" href="' + url + '">' + url + '</a>';});
             } else if (components[i].type === ELEMENTS_TYPES.user) {
                 htmlBlock += '<span field-code="' + components[i].user_id + '" class="h-dynamic-field" contenteditable="false">@' + components[i].user_name + '</span>';
             } else if (components[i].type === ELEMENTS_TYPES.link) {
                 htmlBlock += '<a href="' + components[i].url + '" >' + components[i].text + '</a>';
             } else if (components[i].type === ELEMENTS_TYPES.rich_text_section) {
                 if (isList) {
-                    htmlBlock += "<li>" + jsonToHtml(components[i].elements) + "</li>";
+                    htmlBlock += "<li>" + getMessageContentAsHtml(components[i].elements) + "</li>";
                 } else {
-                    htmlBlock += jsonToHtml(components[i].elements);
+                    htmlBlock += getMessageContentAsHtml(components[i].elements);
                 }
             } else if (components[i].type === ELEMENTS_TYPES.rich_text_list) {
-                let listStyle = components[i].style;
+                var listStyle = components[i].style;
                 if (listStyle && listStyle.list_type === CH_LIST_TYPES.BULLET) {
-                    htmlBlock += "<ul>" + jsonToHtml(components[i].elements, true) + "</ul>";
+                    htmlBlock += "<ul>" + getMessageContentAsHtml(components[i].elements, true) + "</ul>";
                 } else {
-                    htmlBlock += "<ol>" + jsonToHtml(components[i].elements, true) + "</ol>";
+                    htmlBlock += "<ol>" + getMessageContentAsHtml(components[i].elements, true) + "</ol>";
                 }
+            } else if (components[i].type === ELEMENTS_TYPES.blockquote) {
+                htmlBlock += "<blockquote>" + getMessageContentAsHtml(components[i].elements) + "</blockquote>";
             }
-            let style = components[i].style;
+            var style = components[i].style;
             if (style && style.bold) {
                 htmlBlock = "<b>" + htmlBlock + "</b>";
             }
@@ -856,6 +879,17 @@ function convertStringToHTML(str) {
         return doc.body.childNodes[0];
     }
 }
+
+var chMessageTransform = {
+    getMessageContentAsHtml: getMessageContentAsHtml,
+    getMessageContent: getMessageContent,
+    get messageText() {
+        return _messageText;
+    },
+    set messageText(msg) {
+        _messageText = msg;
+    }
+};
 </script>
                 
 
@@ -889,10 +923,10 @@ var richTextContainer, textActionsContainer, messageActionsContainer, sendAction
 var toggleTextAction, voiceNoteAction, cancelEditAction, pollAttachmentAction, redFlagAction, applyLinkAction,
     cancelLinkAction, expandAction, showTextStyleAction, closeTextStyleAction, applyBoldAction, applyItalicAction,
     applyStrikeThroughAction, applyUnderlineAction, addLinkAction, applyUnorderedListAction, applyOrderedListAction,
-    applyIndentAction, applyOutdentAction;
+    applyIndentAction, applyOutdentAction, finishEditAction;
 
 //icons Elements
-var redFlagIcon, finishEditIcon, sendMessageIcon;
+var redFlagIcon, sendMessageIcon, greyFlagIcon;
 
 var editorScrollHeight, selectionRange, editorObserver;
 var renderViewVariables = {
@@ -918,9 +952,11 @@ var renderViewVariables = {
     },
     set redFlag(isFlag) {
         if (isFlag) {
-            redFlagIcon.style.fill = '#ca4545';
+            redFlagIcon.classList.remove('no-display');
+            greyFlagIcon.classList.add('no-display');
         } else {
-            redFlagIcon.style.fill = '#C4C4C4';
+            redFlagIcon.classList.add('no-display');
+            greyFlagIcon.classList.remove('no-display');
         }
         this._isRedFlag = isFlag;
     },
@@ -931,6 +967,7 @@ var renderViewVariables = {
     set showRedFlag(isFlag) {
         if (isFlag) {
             redFlagAction.classList.remove('no-display');
+            renderViewVariables.redFlag = false;
         } else {
             redFlagAction.classList.add('no-display');
         }
@@ -942,6 +979,13 @@ var renderViewVariables = {
     },
     set disabled(isDis) {
         editor.setAttribute('contenteditable', !isDis);
+        if (isDis) {
+            sendActionsContainer.classList.add('disabled');
+            sendMessageIcon.classList.remove('circle-container', 'bg-green');
+        } else {
+            sendActionsContainer.classList.remove('disabled');
+            sendMessageIcon.classList.add('circle-container', 'bg-green');
+        }
         this._isDisabled = isDis;
     },
     _isEditMode: false,
@@ -953,7 +997,7 @@ var renderViewVariables = {
             richTextContainer.classList.add('edit-mode');
             cancelEditAction.classList.remove('no-display');
             sendMessageIcon.classList.add('no-display');
-            finishEditIcon.classList.remove('no-display');
+            finishEditAction.classList.remove('no-display');
             if (isEdit) {
                 moveCursorAtTheEnd();
             }
@@ -961,7 +1005,7 @@ var renderViewVariables = {
             richTextContainer.classList.remove('edit-mode');
             cancelEditAction.classList.add('no-display');
             sendMessageIcon.classList.remove('no-display');
-            finishEditIcon.classList.add('no-display');
+            finishEditAction.classList.add('no-display');
         }
         renderViewVariables.showTextOptions = false;
         this._isEditMode = isEdit;
@@ -1078,10 +1122,10 @@ var renderViewVariables = {
     },
     set sendButtonDisabled(isDisabled) {
         if (isDisabled) {
-            sendMessageIcon.classList.add('disabled');
+            sendActionsContainer.classList.add('disabled');
             sendMessageIcon.classList.remove('circle-container', 'bg-green');
         } else {
-            sendMessageIcon.classList.remove('disabled');
+            sendActionsContainer.classList.remove('disabled');
             sendMessageIcon.classList.add('circle-container', 'bg-green');
         }
         this._isSendButtonDisabled = isDisabled;
@@ -1089,7 +1133,7 @@ var renderViewVariables = {
 };
 
 const RichEditor = {
-    init: (configurations) => {
+    init: function(configurations) {
         editorConfigurations = configurations;
         if (configurations.initialContent) {
             setEditorInnerHtml(configurations.initialContent);
@@ -1105,57 +1149,57 @@ const RichEditor = {
         renderViewVariables.voiceNotesEnabled = configurations.sendVoiceNotesEnabled;
         renderViewVariables.pollsEnabled = configurations.addPollsEnabled;
     },
-    toObject: (htmlString) => {
+    toObject: function(htmlString) {
         var wrapHtmlString = '<div>' + htmlString + '</div>';
         return getChObjectMessage(wrapHtmlString, {}, true);
     },
-    toHTML: (jsonObject) => {
-        return jsonToHtml(getJsonElements(jsonObject));
+    toHTML: function(jsonObject) {
+        return getMessageContentAsHtml(getJsonElements(jsonObject));
     },
-    setContentHtml: (htmlString, editMode) => {
+    setContentHtml: function(htmlString, editMode) {
         setEditorInnerHtml(htmlString);
         renderViewVariables.editMode = editMode;
     },
-    setContentJson: (jsonObject, editMode) => {
-        var htmlString = jsonToHtml(getJsonElements(jsonObject));
+    setContentJson: function(jsonObject, editMode) {
+        var htmlString = getMessageContentAsHtml(getJsonElements(jsonObject));
         setEditorInnerHtml(htmlString);
         renderViewVariables.editMode = editMode;
     },
-    disable: (isDisabled) => {
+    disable: function(isDisabled) {
         renderViewVariables.disabled = isDisabled;
     },
-    destroy: () => {
+    destroy: function() {
         //todo: destroy the component
     },
-    setRedFlag: (redFlag) => {
+    setRedFlag: function(redFlag) {
         renderViewVariables.redFlag = redFlag;
     },
-    getRedFlag: () => {
+    getRedFlag: function() {
         return renderViewVariables.redFlag;
     },
-    enableAttachments: (isEnabled) => {
+    enableAttachments: function(isEnabled) {
         renderViewVariables.attachmentsEnabled = isEnabled;
     },
-    enableVoiceNotes: (isEnabled) => {
+    enableVoiceNotes: function(isEnabled) {
         renderViewVariables.voiceNotesEnabled = isEnabled;
     },
-    enablePolls: (isEnabled) => {
+    enablePolls: function(isEnabled) {
         renderViewVariables.pollsEnabled = isEnabled;
     },
-    reset: () => {
+    reset: function() {
         setEditorInnerHtml('');
     },
-    setLoading: (isLoading) => {
+    setLoading: function(isLoading) {
         renderViewVariables.loading = isLoading;
     },
-    setEditMode: (isEditMode) => {
+    setEditMode: function(isEditMode) {
         renderViewVariables.editMode = isEditMode;
     },
     getContent: getContent,
-    disableSendButton: (isDisabled) => {
+    disableSendButton: function(isDisabled) {
         renderViewVariables.sendButtonDisabled = isDisabled;
     },
-    setExpand: (isExpanded) => {
+    setExpand: function(isExpanded) {
         renderViewVariables.expanded = isExpanded;
     }
 };
@@ -1194,11 +1238,12 @@ window.onload = function () {
     applyOrderedListAction = document.getElementById('apply-ordered-list-action');
     applyIndentAction = document.getElementById('apply-indent-action');
     applyOutdentAction = document.getElementById('apply-outdent-action');
+    finishEditAction = document.getElementById('finish-edit-action');
 
     //assign icons
     redFlagIcon = document.getElementById('red-flag-icon');
-    finishEditIcon = document.getElementById('finish-edit-icon');
     sendMessageIcon = document.getElementById('send-message-icon');
+    greyFlagIcon = document.getElementById('grey-flag-icon');
 
     //assign events:
     expandAction.addEventListener('click', emitExpand);
@@ -1229,7 +1274,7 @@ window.onload = function () {
     applyOutdentAction.addEventListener('mousedown', stopEvent);
     sendMessageIcon.addEventListener('click', sendClicked);
     sendMessageIcon.addEventListener('mousedown', stopEvent);
-    finishEditIcon.addEventListener('click', sendClicked);
+    finishEditAction.addEventListener('click', sendClicked);
     cancelEditAction.addEventListener('click', onCancelEditClick);
     voiceNoteAction.addEventListener('click', voiceMessageClicked);
     redFlagAction.addEventListener('click', toggleRedFlag);
