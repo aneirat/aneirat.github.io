@@ -490,7 +490,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" id="apply-indent-action">
+                <span class="btn no-display" id="apply-indent-action">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Decrease indent</title>
@@ -512,7 +512,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn" id="apply-outdent-action">
+                <span class="btn no-display" id="apply-outdent-action">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Increase indent</title>
@@ -663,7 +663,7 @@
 </body>
 
 
-                    <script>const ELEMENTS_TYPES = {
+                    <script>var ELEMENTS_TYPES = {
     'text': 'text',
     'link': 'link',
     'user': 'user',
@@ -672,7 +672,7 @@
     'blockquote': 'blockquote'
 };
 
-const CH_LIST_TYPES = {
+var CH_LIST_TYPES = {
     'ORDERED': 'ordered',
     'BULLET': 'bullet'
 };
@@ -893,7 +893,7 @@ var chMessageTransform = {
 </script>
                 
 
-                    <script>const HANDLERS = {
+                    <script>var HANDLERS = {
     HEIGHT_CHANGED: 'heightChanged',
     EXPAND_TOGGLED: 'expandToggled',
     ADD_VOICE_MESSAGE_CLICKED: 'addVoiceMessageClicked',
@@ -1132,7 +1132,7 @@ var renderViewVariables = {
     },
 };
 
-const RichEditor = {
+var RichEditor = {
     init: function(configurations) {
         editorConfigurations = configurations;
         if (configurations.initialContent) {
@@ -1285,6 +1285,8 @@ window.onload = function () {
     cancelLinkAction.addEventListener('mousedown', stopEvent);
     applyLinkAction.addEventListener('click', applyLinkToSelection);
     applyLinkAction.addEventListener('mousedown', stopEvent);
+    document.addEventListener("selectionchange", updateIndentationButtonsState,false);
+
 
     assignOnChange();
 
@@ -1422,6 +1424,18 @@ function assignOnChange() {
 
 function observeEditor() {
     editorObserver && editorObserver.observe(editor, {childList: true, subtree: true, characterData: true});
+}
+
+
+function updateIndentationButtonsState() {
+    var showIndentationButtons = document.queryCommandState('insertUnorderedList') || document.queryCommandState('insertOrderedList');
+    if (showIndentationButtons) {
+        applyIndentAction.classList.remove('no-display');
+        applyOutdentAction.classList.remove('no-display');
+    } else {
+        applyIndentAction.classList.add('no-display');
+        applyOutdentAction.classList.add('no-display');
+    }
 }
 
 function setEditorInnerHtml(htmlString) {
