@@ -490,7 +490,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn no-display" id="apply-indent-action">
+                <span class="btn " id="apply-indent-action">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Decrease indent</title>
@@ -512,7 +512,7 @@
                         </g>
                     </svg>
                 </span>
-                <span class="btn no-display" id="apply-outdent-action">
+                <span class="btn" id="apply-outdent-action">
                     <svg height="17px" version="1.1" viewBox="0 0 18 17" width="18px" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Increase indent</title>
@@ -1285,7 +1285,6 @@ window.onload = function () {
     cancelLinkAction.addEventListener('mousedown', stopEvent);
     applyLinkAction.addEventListener('click', applyLinkToSelection);
     applyLinkAction.addEventListener('mousedown', stopEvent);
-    document.addEventListener("selectionchange", updateIndentationButtonsState,false);
 
 
     assignOnChange();
